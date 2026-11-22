@@ -1,0 +1,252 @@
+{
+  "version": "2026-11-22",
+  "about": "The help topics that the Saanjh Clothing support assistant covers. An order topic is about one item of an order, which the customer selects or names. A general topic needs no item. Small talk asks for nothing.",
+  "topics": [
+    {
+      "id": "track_status",
+      "group": "order",
+      "title": "Order status",
+      "wants": "The customer wants to know where the item is, whether it has shipped, or what its current status is.",
+      "needs_item": true
+    },
+    {
+      "id": "track_eta",
+      "group": "order",
+      "title": "Delivery date",
+      "wants": "The customer wants to know when the item will arrive, or asks for its estimated delivery date.",
+      "needs_item": true
+    },
+    {
+      "id": "track_details",
+      "group": "order",
+      "title": "Shipment details",
+      "wants": "The customer wants the courier's name, the tracking number, or the number of delivery attempts made so far.",
+      "needs_item": true
+    },
+    {
+      "id": "late_delivery",
+      "group": "order",
+      "title": "Late delivery",
+      "wants": "The customer says the estimated delivery date has passed and the item has still not arrived.",
+      "needs_item": true
+    },
+    {
+      "id": "not_received",
+      "group": "order",
+      "title": "Item not received",
+      "wants": "The customer says the item has not arrived. It may still be in transit, may not have shipped yet, or may be marked as delivered.",
+      "needs_item": true
+    },
+    {
+      "id": "cancel",
+      "group": "order",
+      "title": "Cancel an item",
+      "wants": "The customer wants to cancel the item, or asks whether it can still be cancelled.",
+      "needs_item": true
+    },
+    {
+      "id": "return",
+      "group": "order",
+      "title": "Return an item",
+      "wants": "The customer wants to return the item, or asks whether and until when it can be returned, or how the pickup works.",
+      "needs_item": true
+    },
+    {
+      "id": "exchange",
+      "group": "order",
+      "title": "Exchange an item",
+      "wants": "The customer wants the item in a different size or colour.",
+      "needs_item": true
+    },
+    {
+      "id": "refund_status",
+      "group": "order",
+      "title": "Refund status",
+      "wants": "The customer wants to know where the refund for the item is: its amount, its dates and the method it is paid by.",
+      "needs_item": true
+    },
+    {
+      "id": "refund_terms",
+      "group": "order",
+      "title": "Refund terms",
+      "wants": "The customer wants to know how and when a refund would be paid for this item.",
+      "needs_item": true
+    },
+    {
+      "id": "damaged_wrong",
+      "group": "order",
+      "title": "Damaged or wrong item",
+      "wants": "The customer says the item arrived damaged or defective, or that it is not the item they ordered.",
+      "needs_item": true
+    },
+    {
+      "id": "address_change",
+      "group": "order",
+      "title": "Change the delivery address",
+      "wants": "The customer wants the item delivered to a different address.",
+      "needs_item": true
+    },
+    {
+      "id": "modify_order",
+      "group": "order",
+      "title": "Change the order",
+      "wants": "The customer wants to change the size, colour or quantity of the item before it ships.",
+      "needs_item": true
+    },
+    {
+      "id": "payment",
+      "group": "order",
+      "title": "Payment",
+      "wants": "The customer wants to know what was paid for the order and how, or reports a duplicate charge or a payment that failed although the money was debited.",
+      "needs_item": true
+    },
+    {
+      "id": "invoice",
+      "group": "order",
+      "title": "Invoice",
+      "wants": "The customer wants the invoice or bill for the order.",
+      "needs_item": true
+    },
+    {
+      "id": "order_details",
+      "group": "order",
+      "title": "Order details",
+      "wants": "The customer wants to know what was ordered: the item, its price, its size and the payment method.",
+      "needs_item": true
+    },
+    {
+      "id": "speed_up",
+      "group": "order",
+      "title": "Faster delivery",
+      "wants": "The customer wants the item delivered sooner than its estimated delivery date.",
+      "needs_item": true
+    },
+    {
+      "id": "delivery_options",
+      "group": "order",
+      "title": "Delivery options",
+      "wants": "The customer asks for a delivery time slot, wants the package left with a neighbour, or asks what happens after a failed delivery attempt.",
+      "needs_item": true
+    },
+    {
+      "id": "human",
+      "group": "order",
+      "title": "Talk to a person",
+      "wants": "The customer asks to deal with a person instead of the assistant.",
+      "needs_item": true
+    },
+    {
+      "id": "return_policy",
+      "group": "general",
+      "title": "Return policy",
+      "wants": "The customer asks how returns work in general: the return window, the conditions, what cannot be returned and the pickup.",
+      "needs_item": false
+    },
+    {
+      "id": "refund_policy",
+      "group": "general",
+      "title": "Refund policy and timelines",
+      "wants": "The customer asks how refunds are paid in general and how long they take.",
+      "needs_item": false
+    },
+    {
+      "id": "cancellation_policy",
+      "group": "general",
+      "title": "Cancellation policy",
+      "wants": "The customer asks in general until when an order can be cancelled and what happens to the payment.",
+      "needs_item": false
+    },
+    {
+      "id": "exchange_policy",
+      "group": "general",
+      "title": "Exchange policy",
+      "wants": "The customer asks in general whether an item can be exchanged for another size or colour.",
+      "needs_item": false
+    },
+    {
+      "id": "shipping_times",
+      "group": "general",
+      "title": "Shipping times",
+      "wants": "The customer asks how long dispatch and delivery take.",
+      "needs_item": false
+    },
+    {
+      "id": "shipping_charges",
+      "group": "general",
+      "title": "Shipping charges",
+      "wants": "The customer asks what shipping costs and when it is free.",
+      "needs_item": false
+    },
+    {
+      "id": "cash_on_delivery",
+      "group": "general",
+      "title": "Cash on delivery",
+      "wants": "The customer asks whether cash on delivery is available and what it costs.",
+      "needs_item": false
+    },
+    {
+      "id": "international_shipping",
+      "group": "general",
+      "title": "International shipping",
+      "wants": "The customer asks whether the store delivers outside India.",
+      "needs_item": false
+    },
+    {
+      "id": "payment_methods",
+      "group": "general",
+      "title": "Payment methods",
+      "wants": "The customer asks which payment methods the store accepts.",
+      "needs_item": false
+    },
+    {
+      "id": "damaged_wrong_process",
+      "group": "general",
+      "title": "Damaged or wrong item process",
+      "wants": "The customer asks in general what to do when an item arrives damaged, defective or wrong.",
+      "needs_item": false
+    },
+    {
+      "id": "how_to_track",
+      "group": "general",
+      "title": "How to track an order",
+      "wants": "The customer asks in general how an order can be tracked.",
+      "needs_item": false
+    },
+    {
+      "id": "support_contact",
+      "group": "general",
+      "title": "Support hours and contact",
+      "wants": "The customer asks when and how the support team can be reached.",
+      "needs_item": false
+    },
+    {
+      "id": "order_changes",
+      "group": "general",
+      "title": "Changing an order or address",
+      "wants": "The customer asks in general whether an order or its delivery address can be changed after it is placed.",
+      "needs_item": false
+    },
+    {
+      "id": "greeting",
+      "group": "small_talk",
+      "title": "Greeting",
+      "wants": "The customer opens the conversation with a greeting and asks for nothing yet.",
+      "needs_item": false
+    },
+    {
+      "id": "thanks",
+      "group": "small_talk",
+      "title": "Thanks",
+      "wants": "The customer thanks the assistant.",
+      "needs_item": false
+    },
+    {
+      "id": "goodbye",
+      "group": "small_talk",
+      "title": "Goodbye",
+      "wants": "The customer ends the conversation.",
+      "needs_item": false
+    }
+  ],
+  "out_of_scope": "Everything else is outside the assistant's scope and gets no routine answer: for example stock and product advice, discounts and offers, careers, unrelated chat, and instructions addressed to the assistant itself."
+}

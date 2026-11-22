@@ -1,0 +1,2889 @@
+{
+ "mode": "e2e",
+ "split": "test",
+ "only": null,
+ "at": "2026-11-21T15:53:16.472851+00:00",
+ "gate": {
+  "version": "pilot-1",
+  "status": "cutoffs confirmed on the development split on 2026-11-21 against AI-drafted labels; not yet reviewed by a person",
+  "model": "jev-1.14.0",
+  "policy_version": "2026-11-01",
+  "questions": {
+   "supported": {
+    "instructions": "Does every factual claim and every promise in `proposed_reply` follow from `order_record` and `store_policy`, taking `today` as the current date?",
+    "criteria": {
+     "true": "each status, date, amount, offered action and promise in the reply is stated in the order record or the store policy, or follows directly from them; a reply that only asks a question makes no unsupported claim",
+     "false": "at least one claim or promise in the reply is not stated in the order record or the store policy and does not follow from them, or contradicts them"
+    }
+   },
+   "complete": {
+    "instructions": "Does `proposed_reply` cover every part of `customer_message`, read in the context of `conversation_history`?",
+    "criteria": {
+     "true": "the reply answers every question in the customer message and responds to every request, by offering the action for confirmation or by explaining why it cannot be done",
+     "false": "at least one question or request in the customer message gets no answer in the reply"
+    }
+   },
+   "requires_human": {
+    "instructions": "Does the situation described by `customer_message`, `conversation_history` and `order_record` meet one of the escalation conditions listed in `store_policy`?",
+    "criteria": {
+     "true": "at least one escalation condition in the store policy applies to this customer's situation",
+     "false": "none of the escalation conditions in the store policy applies to this customer's situation"
+    }
+   }
+  },
+  "thresholds": {
+   "supported_min": 0.7,
+   "complete_min": 0.7,
+   "requires_human_handoff": 0.7,
+   "requires_human_low": 0.3
+  },
+  "usd_per_mtok_input": 0.042
+ },
+ "fallback_model": "the app's default",
+ "metrics": {
+  "overall": {
+   "situations": 40,
+   "resolved_on_rules_path": {
+    "n": 9,
+    "d": 40,
+    "rate": 0.225
+   },
+   "routes": {
+    "fallback": {
+     "n": 6,
+     "d": 40,
+     "rate": 0.15
+    },
+    "handoff": {
+     "n": 24,
+     "d": 40,
+     "rate": 0.6
+    },
+    "mandated_ticket": {
+     "n": 1,
+     "d": 40,
+     "rate": 0.025
+    },
+    "rule": {
+     "n": 9,
+     "d": 40,
+     "rate": 0.225
+    }
+   },
+   "required_handoffs_missed": {
+    "n": 0,
+    "d": 14,
+    "rate": 0.0
+   },
+   "accepted_rule_drafts_unsuitable": {
+    "n": 0,
+    "d": 9,
+    "rate": 0.0
+   },
+   "other_labelled_replies_unsuitable": {
+    "n": 0,
+    "d": 0,
+    "rate": null
+   },
+   "final_replies_for_human_review": {
+    "n": 6,
+    "d": 40,
+    "rate": 0.15
+   },
+   "baseline": {
+    "rule_draft": {
+     "n": 34,
+     "d": 40,
+     "rate": 0.85
+    },
+    "mandated_ticket": {
+     "n": 1,
+     "d": 40,
+     "rate": 0.025
+    },
+    "no_rule_reply": {
+     "n": 5,
+     "d": 40,
+     "rate": 0.125
+    }
+   },
+   "baseline_on_required_handoffs": {
+    "rule_draft": {
+     "n": 10,
+     "d": 14,
+     "rate": 0.7143
+    },
+    "mandated_ticket": {
+     "n": 1,
+     "d": 14,
+     "rate": 0.0714
+    },
+    "no_rule_reply": {
+     "n": 3,
+     "d": 14,
+     "rate": 0.2143
+    }
+   },
+   "baseline_drafts_unsuitable": {
+    "n": 21,
+    "d": 34,
+    "rate": 0.6176
+   },
+   "unsuitable_baseline_drafts_stopped": {
+    "n": 21,
+    "d": 21,
+    "rate": 1.0
+   },
+   "suitable_baseline_drafts_not_accepted": {
+    "n": 4,
+    "d": 13,
+    "rate": 0.3077
+   },
+   "provider_calls": {
+    "jev": 43,
+    "fallback": 20
+   },
+   "provider_errors": 0,
+   "elapsed_ms": {
+    "median": 997,
+    "p95": 3387,
+    "max": 4114
+   },
+   "cost_usd": {
+    "mean": 6.346e-05,
+    "total": 0.00253823,
+    "unknown": 0
+   },
+   "ids": {
+    "required_handoffs_missed": [],
+    "accepted_rule_drafts_unsuitable": [],
+    "other_labelled_replies_unsuitable": [],
+    "final_replies_for_human_review": [
+     "refund-013",
+     "refund-015",
+     "refund-019",
+     "refund-020",
+     "cancel-014",
+     "return-017"
+    ],
+    "unsuitable_baseline_drafts_stopped": [
+     "track-013",
+     "track-015",
+     "track-018",
+     "track-019",
+     "track-020",
+     "refund-013",
+     "refund-016",
+     "refund-017",
+     "refund-020",
+     "cancel-013",
+     "cancel-014",
+     "cancel-017",
+     "cancel-018",
+     "cancel-020",
+     "return-014",
+     "return-015",
+     "return-017",
+     "missing-014",
+     "missing-015",
+     "missing-019",
+     "missing-020"
+    ],
+    "suitable_baseline_drafts_not_accepted": [
+     "refund-015",
+     "refund-019",
+     "missing-013",
+     "missing-017"
+    ]
+   }
+  },
+  "track": {
+   "situations": 8,
+   "resolved_on_rules_path": {
+    "n": 1,
+    "d": 8,
+    "rate": 0.125
+   },
+   "routes": {
+    "handoff": {
+     "n": 7,
+     "d": 8,
+     "rate": 0.875
+    },
+    "rule": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    }
+   },
+   "required_handoffs_missed": {
+    "n": 0,
+    "d": 3,
+    "rate": 0.0
+   },
+   "accepted_rule_drafts_unsuitable": {
+    "n": 0,
+    "d": 1,
+    "rate": 0.0
+   },
+   "other_labelled_replies_unsuitable": {
+    "n": 0,
+    "d": 0,
+    "rate": null
+   },
+   "final_replies_for_human_review": {
+    "n": 0,
+    "d": 8,
+    "rate": 0.0
+   },
+   "baseline": {
+    "rule_draft": {
+     "n": 6,
+     "d": 8,
+     "rate": 0.75
+    },
+    "mandated_ticket": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "no_rule_reply": {
+     "n": 2,
+     "d": 8,
+     "rate": 0.25
+    }
+   },
+   "baseline_on_required_handoffs": {
+    "rule_draft": {
+     "n": 2,
+     "d": 3,
+     "rate": 0.6667
+    },
+    "mandated_ticket": {
+     "n": 0,
+     "d": 3,
+     "rate": 0.0
+    },
+    "no_rule_reply": {
+     "n": 1,
+     "d": 3,
+     "rate": 0.3333
+    }
+   },
+   "baseline_drafts_unsuitable": {
+    "n": 5,
+    "d": 6,
+    "rate": 0.8333
+   },
+   "unsuitable_baseline_drafts_stopped": {
+    "n": 5,
+    "d": 5,
+    "rate": 1.0
+   },
+   "suitable_baseline_drafts_not_accepted": {
+    "n": 0,
+    "d": 1,
+    "rate": 0.0
+   },
+   "provider_calls": {
+    "jev": 7,
+    "fallback": 5
+   },
+   "provider_errors": 0,
+   "elapsed_ms": {
+    "median": 1706,
+    "p95": 2314,
+    "max": 2314
+   },
+   "cost_usd": {
+    "mean": 4.799e-05,
+    "total": 0.00038388,
+    "unknown": 0
+   },
+   "ids": {
+    "required_handoffs_missed": [],
+    "accepted_rule_drafts_unsuitable": [],
+    "other_labelled_replies_unsuitable": [],
+    "final_replies_for_human_review": [],
+    "unsuitable_baseline_drafts_stopped": [
+     "track-013",
+     "track-015",
+     "track-018",
+     "track-019",
+     "track-020"
+    ],
+    "suitable_baseline_drafts_not_accepted": []
+   }
+  },
+  "refund": {
+   "situations": 8,
+   "resolved_on_rules_path": {
+    "n": 1,
+    "d": 8,
+    "rate": 0.125
+   },
+   "routes": {
+    "fallback": {
+     "n": 4,
+     "d": 8,
+     "rate": 0.5
+    },
+    "handoff": {
+     "n": 3,
+     "d": 8,
+     "rate": 0.375
+    },
+    "rule": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    }
+   },
+   "required_handoffs_missed": {
+    "n": 0,
+    "d": 3,
+    "rate": 0.0
+   },
+   "accepted_rule_drafts_unsuitable": {
+    "n": 0,
+    "d": 1,
+    "rate": 0.0
+   },
+   "other_labelled_replies_unsuitable": {
+    "n": 0,
+    "d": 0,
+    "rate": null
+   },
+   "final_replies_for_human_review": {
+    "n": 4,
+    "d": 8,
+    "rate": 0.5
+   },
+   "baseline": {
+    "rule_draft": {
+     "n": 7,
+     "d": 8,
+     "rate": 0.875
+    },
+    "mandated_ticket": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "no_rule_reply": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    }
+   },
+   "baseline_on_required_handoffs": {
+    "rule_draft": {
+     "n": 2,
+     "d": 3,
+     "rate": 0.6667
+    },
+    "mandated_ticket": {
+     "n": 0,
+     "d": 3,
+     "rate": 0.0
+    },
+    "no_rule_reply": {
+     "n": 1,
+     "d": 3,
+     "rate": 0.3333
+    }
+   },
+   "baseline_drafts_unsuitable": {
+    "n": 4,
+    "d": 7,
+    "rate": 0.5714
+   },
+   "unsuitable_baseline_drafts_stopped": {
+    "n": 4,
+    "d": 4,
+    "rate": 1.0
+   },
+   "suitable_baseline_drafts_not_accepted": {
+    "n": 2,
+    "d": 3,
+    "rate": 0.6667
+   },
+   "provider_calls": {
+    "jev": 11,
+    "fallback": 5
+   },
+   "provider_errors": 0,
+   "elapsed_ms": {
+    "median": 2734,
+    "p95": 3387,
+    "max": 3387
+   },
+   "cost_usd": {
+    "mean": 8.827e-05,
+    "total": 0.00070619,
+    "unknown": 0
+   },
+   "ids": {
+    "required_handoffs_missed": [],
+    "accepted_rule_drafts_unsuitable": [],
+    "other_labelled_replies_unsuitable": [],
+    "final_replies_for_human_review": [
+     "refund-013",
+     "refund-015",
+     "refund-019",
+     "refund-020"
+    ],
+    "unsuitable_baseline_drafts_stopped": [
+     "refund-013",
+     "refund-016",
+     "refund-017",
+     "refund-020"
+    ],
+    "suitable_baseline_drafts_not_accepted": [
+     "refund-015",
+     "refund-019"
+    ]
+   }
+  },
+  "cancel": {
+   "situations": 8,
+   "resolved_on_rules_path": {
+    "n": 3,
+    "d": 8,
+    "rate": 0.375
+   },
+   "routes": {
+    "fallback": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    },
+    "handoff": {
+     "n": 4,
+     "d": 8,
+     "rate": 0.5
+    },
+    "rule": {
+     "n": 3,
+     "d": 8,
+     "rate": 0.375
+    }
+   },
+   "required_handoffs_missed": {
+    "n": 0,
+    "d": 2,
+    "rate": 0.0
+   },
+   "accepted_rule_drafts_unsuitable": {
+    "n": 0,
+    "d": 3,
+    "rate": 0.0
+   },
+   "other_labelled_replies_unsuitable": {
+    "n": 0,
+    "d": 0,
+    "rate": null
+   },
+   "final_replies_for_human_review": {
+    "n": 1,
+    "d": 8,
+    "rate": 0.125
+   },
+   "baseline": {
+    "rule_draft": {
+     "n": 8,
+     "d": 8,
+     "rate": 1.0
+    },
+    "mandated_ticket": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "no_rule_reply": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    }
+   },
+   "baseline_on_required_handoffs": {
+    "rule_draft": {
+     "n": 2,
+     "d": 2,
+     "rate": 1.0
+    },
+    "mandated_ticket": {
+     "n": 0,
+     "d": 2,
+     "rate": 0.0
+    },
+    "no_rule_reply": {
+     "n": 0,
+     "d": 2,
+     "rate": 0.0
+    }
+   },
+   "baseline_drafts_unsuitable": {
+    "n": 5,
+    "d": 8,
+    "rate": 0.625
+   },
+   "unsuitable_baseline_drafts_stopped": {
+    "n": 5,
+    "d": 5,
+    "rate": 1.0
+   },
+   "suitable_baseline_drafts_not_accepted": {
+    "n": 0,
+    "d": 3,
+    "rate": 0.0
+   },
+   "provider_calls": {
+    "jev": 11,
+    "fallback": 3
+   },
+   "provider_errors": 0,
+   "elapsed_ms": {
+    "median": 286,
+    "p95": 4114,
+    "max": 4114
+   },
+   "cost_usd": {
+    "mean": 8.07e-05,
+    "total": 0.00064558,
+    "unknown": 0
+   },
+   "ids": {
+    "required_handoffs_missed": [],
+    "accepted_rule_drafts_unsuitable": [],
+    "other_labelled_replies_unsuitable": [],
+    "final_replies_for_human_review": [
+     "cancel-014"
+    ],
+    "unsuitable_baseline_drafts_stopped": [
+     "cancel-013",
+     "cancel-014",
+     "cancel-017",
+     "cancel-018",
+     "cancel-020"
+    ],
+    "suitable_baseline_drafts_not_accepted": []
+   }
+  },
+  "return": {
+   "situations": 8,
+   "resolved_on_rules_path": {
+    "n": 3,
+    "d": 8,
+    "rate": 0.375
+   },
+   "routes": {
+    "fallback": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    },
+    "handoff": {
+     "n": 3,
+     "d": 8,
+     "rate": 0.375
+    },
+    "mandated_ticket": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    },
+    "rule": {
+     "n": 3,
+     "d": 8,
+     "rate": 0.375
+    }
+   },
+   "required_handoffs_missed": {
+    "n": 0,
+    "d": 4,
+    "rate": 0.0
+   },
+   "accepted_rule_drafts_unsuitable": {
+    "n": 0,
+    "d": 3,
+    "rate": 0.0
+   },
+   "other_labelled_replies_unsuitable": {
+    "n": 0,
+    "d": 0,
+    "rate": null
+   },
+   "final_replies_for_human_review": {
+    "n": 1,
+    "d": 8,
+    "rate": 0.125
+   },
+   "baseline": {
+    "rule_draft": {
+     "n": 6,
+     "d": 8,
+     "rate": 0.75
+    },
+    "mandated_ticket": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    },
+    "no_rule_reply": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    }
+   },
+   "baseline_on_required_handoffs": {
+    "rule_draft": {
+     "n": 2,
+     "d": 4,
+     "rate": 0.5
+    },
+    "mandated_ticket": {
+     "n": 1,
+     "d": 4,
+     "rate": 0.25
+    },
+    "no_rule_reply": {
+     "n": 1,
+     "d": 4,
+     "rate": 0.25
+    }
+   },
+   "baseline_drafts_unsuitable": {
+    "n": 3,
+    "d": 6,
+    "rate": 0.5
+   },
+   "unsuitable_baseline_drafts_stopped": {
+    "n": 3,
+    "d": 3,
+    "rate": 1.0
+   },
+   "suitable_baseline_drafts_not_accepted": {
+    "n": 0,
+    "d": 3,
+    "rate": 0.0
+   },
+   "provider_calls": {
+    "jev": 7,
+    "fallback": 2
+   },
+   "provider_errors": 0,
+   "elapsed_ms": {
+    "median": 268,
+    "p95": 3944,
+    "max": 3944
+   },
+   "cost_usd": {
+    "mean": 5.241e-05,
+    "total": 0.00041929,
+    "unknown": 0
+   },
+   "ids": {
+    "required_handoffs_missed": [],
+    "accepted_rule_drafts_unsuitable": [],
+    "other_labelled_replies_unsuitable": [],
+    "final_replies_for_human_review": [
+     "return-017"
+    ],
+    "unsuitable_baseline_drafts_stopped": [
+     "return-014",
+     "return-015",
+     "return-017"
+    ],
+    "suitable_baseline_drafts_not_accepted": []
+   }
+  },
+  "missing": {
+   "situations": 8,
+   "resolved_on_rules_path": {
+    "n": 1,
+    "d": 8,
+    "rate": 0.125
+   },
+   "routes": {
+    "handoff": {
+     "n": 7,
+     "d": 8,
+     "rate": 0.875
+    },
+    "rule": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    }
+   },
+   "required_handoffs_missed": {
+    "n": 0,
+    "d": 2,
+    "rate": 0.0
+   },
+   "accepted_rule_drafts_unsuitable": {
+    "n": 0,
+    "d": 1,
+    "rate": 0.0
+   },
+   "other_labelled_replies_unsuitable": {
+    "n": 0,
+    "d": 0,
+    "rate": null
+   },
+   "final_replies_for_human_review": {
+    "n": 0,
+    "d": 8,
+    "rate": 0.0
+   },
+   "baseline": {
+    "rule_draft": {
+     "n": 7,
+     "d": 8,
+     "rate": 0.875
+    },
+    "mandated_ticket": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "no_rule_reply": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    }
+   },
+   "baseline_on_required_handoffs": {
+    "rule_draft": {
+     "n": 2,
+     "d": 2,
+     "rate": 1.0
+    },
+    "mandated_ticket": {
+     "n": 0,
+     "d": 2,
+     "rate": 0.0
+    },
+    "no_rule_reply": {
+     "n": 0,
+     "d": 2,
+     "rate": 0.0
+    }
+   },
+   "baseline_drafts_unsuitable": {
+    "n": 4,
+    "d": 7,
+    "rate": 0.5714
+   },
+   "unsuitable_baseline_drafts_stopped": {
+    "n": 4,
+    "d": 4,
+    "rate": 1.0
+   },
+   "suitable_baseline_drafts_not_accepted": {
+    "n": 2,
+    "d": 3,
+    "rate": 0.6667
+   },
+   "provider_calls": {
+    "jev": 7,
+    "fallback": 5
+   },
+   "provider_errors": 0,
+   "elapsed_ms": {
+    "median": 2009,
+    "p95": 2412,
+    "max": 2412
+   },
+   "cost_usd": {
+    "mean": 4.791e-05,
+    "total": 0.00038329,
+    "unknown": 0
+   },
+   "ids": {
+    "required_handoffs_missed": [],
+    "accepted_rule_drafts_unsuitable": [],
+    "other_labelled_replies_unsuitable": [],
+    "final_replies_for_human_review": [],
+    "unsuitable_baseline_drafts_stopped": [
+     "missing-014",
+     "missing-015",
+     "missing-019",
+     "missing-020"
+    ],
+    "suitable_baseline_drafts_not_accepted": [
+     "missing-013",
+     "missing-017"
+    ]
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": "track-013",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your lehenga has shipped. It is expected on November 24.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:18.958057+00:00",
+   "message": "Where is my lehenga?? I paid ₹12,999 for it twelve days ago. Tell me exactly when it will be delivered or I am sending you a legal notice.",
+   "item_id": "ITM-5601",
+   "intent": "track",
+   "route": "handoff",
+   "reason": "Jev scored the situation as needing a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your lehenga has shipped. It is expected on November 24.",
+    "evidence": [
+     "item.status",
+     "item.eta"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.96,
+    "complete": 0.41,
+    "requires_human": 0.98
+   },
+   "decision": "handoff",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 358,
+    "fallback": 0,
+    "total": 358
+   },
+   "cost_usd": 5.67e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "track-014",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "no_rule_reply",
+   "baseline_reply": null,
+   "baseline_suitable": null,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:19.318055+00:00",
+   "message": "Not good enough. Will it be here by tomorrow or not? Otherwise you will be hearing from my lawyer.",
+   "item_id": "ITM-5601",
+   "intent": null,
+   "route": "handoff",
+   "reason": "The fallback asked for a person, so a support ticket was opened.",
+   "candidate": null,
+   "scores": null,
+   "decision": null,
+   "fallback": {
+    "kind": "handoff",
+    "text": "The customer threatens legal action and demands a specific delivery date that the evidence does not support.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 0,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 0,
+    "fallback": 2257,
+    "total": 2257
+   },
+   "cost_usd": 0.0,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "track-015",
+   "flow": "track",
+   "label_status": "ai_draft",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your shawl has shipped. It was expected on November 19 and has not been delivered yet.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:21.576844+00:00",
+   "message": "its 2 days late!!! was suppose to come on the 19th. where is it and when will it actually get here",
+   "item_id": "ITM-5701",
+   "intent": "track",
+   "route": "handoff",
+   "reason": "Jev did not accept the fallback reply, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your shawl has shipped. It was expected on November 19 and has not been delivered yet.",
+    "evidence": [
+     "item.status",
+     "item.eta"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.82,
+    "complete": 0.05,
+    "requires_human": 0.05
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "reply",
+    "text": "Your shawl has shipped and is expected on November 19.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": {
+    "supported": 0.82,
+    "complete": 0.05,
+    "requires_human": 0.06
+   },
+   "fallback_decision": "reject",
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 2,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 560,
+    "fallback": 1753,
+    "total": 2314
+   },
+   "cost_usd": 0.00010899000000000001,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "track-016",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "no_rule_reply",
+   "baseline_reply": null,
+   "baseline_suitable": null,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:23.891967+00:00",
+   "message": "But the 19th has already gone. So what is the new date, and do I get any compensation for the delay?",
+   "item_id": "ITM-5701",
+   "intent": null,
+   "route": "handoff",
+   "reason": "The fallback asked for a person, so a support ticket was opened.",
+   "candidate": null,
+   "scores": null,
+   "decision": null,
+   "fallback": {
+    "kind": "handoff",
+    "text": "The customer asks for a new delivery date and compensation for the delay.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 0,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 0,
+    "fallback": 1569,
+    "total": 1569
+   },
+   "cost_usd": 0.0,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "track-017",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your shawl has shipped. It is expected on November 19.",
+   "baseline_suitable": true,
+   "matched": "track-017-a",
+   "suitable": true,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:25.464609+00:00",
+   "message": "When will my cream jamawar shawl arrive?",
+   "item_id": "ITM-5701",
+   "intent": "track",
+   "route": "rule",
+   "reason": "Jev accepted the rule draft, so it was sent.",
+   "candidate": {
+    "draft": "Your shawl has shipped. It is expected on November 19.",
+    "evidence": [
+     "item.status",
+     "item.eta"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.95,
+    "complete": 0.97,
+    "requires_human": 0.03
+   },
+   "decision": "accept",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 308,
+    "fallback": 0,
+    "total": 308
+   },
+   "cost_usd": 5.3676e-05,
+   "reply": "Your shawl has shipped. It is expected on November 19."
+  },
+  {
+   "id": "track-018",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your kurti is packed and has not shipped yet. It is expected on November 25.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:25.775978+00:00",
+   "message": "Hi! When will my kurti arrive? Also can you please change the delivery address to my office, I won't be home during the day.",
+   "item_id": "ITM-5801",
+   "intent": "track",
+   "route": "handoff",
+   "reason": "The fallback asked for a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your kurti is packed and has not shipped yet. It is expected on November 25.",
+    "evidence": [
+     "item.status",
+     "item.eta"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.89,
+    "complete": 0.03,
+    "requires_human": 0.02
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "handoff",
+    "text": "The customer wants to change the delivery address to their office.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 306,
+    "fallback": 1534,
+    "total": 1842
+   },
+   "cost_usd": 5.4222000000000004e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "track-019",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your sherwani has shipped. It is expected on November 23.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:27.620426+00:00",
+   "message": "Which courier is my sherwani with and what's the tracking number? Also when is it due?",
+   "item_id": "ITM-5802",
+   "intent": "track",
+   "route": "handoff",
+   "reason": "The fallback asked for a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your sherwani has shipped. It is expected on November 23.",
+    "evidence": [
+     "item.status",
+     "item.eta"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.96,
+    "complete": 0.02,
+    "requires_human": 0.02
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "handoff",
+    "text": "The customer asks which courier is carrying their sherwani and for the tracking number.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 291,
+    "fallback": 1619,
+    "total": 1911
+   },
+   "cost_usd": 5.6238000000000006e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "track-020",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your dress has shipped. It is expected on November 24.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:29.532455+00:00",
+   "message": "hi, when will my dress arrive? also my bank app shows the payment went through twice, pls check",
+   "item_id": "ITM-5804",
+   "intent": "track",
+   "route": "handoff",
+   "reason": "Jev scored the situation as needing a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your dress has shipped. It is expected on November 24.",
+    "evidence": [
+     "item.status",
+     "item.eta"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.97,
+    "complete": 0.03,
+    "requires_human": 0.97
+   },
+   "decision": "handoff",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 297,
+    "fallback": 0,
+    "total": 297
+   },
+   "cost_usd": 5.4054e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "refund-013",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "A return for your anarkali was requested on November 20. Pickup is scheduled for November 22.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": true,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:29.830994+00:00",
+   "message": "I asked to return the anarkali yesterday. Has the refund started yet, and how long will it take once it does?",
+   "item_id": "ITM-8301",
+   "intent": "return",
+   "route": "fallback",
+   "reason": "Jev accepted the fallback reply, so it was sent.",
+   "candidate": {
+    "draft": "A return for your anarkali was requested on November 20. Pickup is scheduled for November 22.",
+    "evidence": [
+     "item.status",
+     "item.return"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.97,
+    "complete": 0.04,
+    "requires_human": 0.03
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "reply",
+    "text": "Your anarkali return was requested on November 20 and the pickup is scheduled for November 22. The refund will be initiated once the item passes inspection, then credited within 7 business days to your original payment method.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": {
+    "supported": 0.93,
+    "complete": 0.88,
+    "requires_human": 0.04
+   },
+   "fallback_decision": "accept",
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 2,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 656,
+    "fallback": 2326,
+    "total": 2983
+   },
+   "cost_usd": 0.000125622,
+   "reply": "Your anarkali return was requested on November 20 and the pickup is scheduled for November 22. The refund will be initiated once the item passes inspection, then credited within 7 business days to your original payment method."
+  },
+  {
+   "id": "refund-014",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "A return for your lehenga was requested on November 21. Pickup is scheduled for November 23. There is no refund on record for it. The refund is initiated once the returned item passes inspection.",
+   "baseline_suitable": true,
+   "matched": "refund-014-a",
+   "suitable": true,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:32.817162+00:00",
+   "message": "ok confirmed. has my refund been started?",
+   "item_id": "ITM-8401",
+   "intent": "refund",
+   "route": "rule",
+   "reason": "Jev accepted the rule draft, so it was sent.",
+   "candidate": {
+    "draft": "A return for your lehenga was requested on November 21. Pickup is scheduled for November 23. There is no refund on record for it. The refund is initiated once the returned item passes inspection.",
+    "evidence": [
+     "item.status",
+     "item.return",
+     "item.refund",
+     "policy.returns"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.83,
+    "complete": 0.97,
+    "requires_human": 0.03
+   },
+   "decision": "accept",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 270,
+    "fallback": 0,
+    "total": 270
+   },
+   "cost_usd": 6.531e-05,
+   "reply": "A return for your lehenga was requested on November 21. Pickup is scheduled for November 23. There is no refund on record for it. The refund is initiated once the returned item passes inspection."
+  },
+  {
+   "id": "refund-015",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your sweater was delivered on November 18. There is no refund on record for it.",
+   "baseline_suitable": true,
+   "matched": null,
+   "suitable": null,
+   "needs_review": true,
+   "pending_action": "return",
+   "at": "2026-11-21T15:52:33.091684+00:00",
+   "message": "refund for the sweater?? any updte",
+   "item_id": "ITM-8501",
+   "intent": "refund",
+   "route": "fallback",
+   "reason": "Jev accepted the fallback reply, so it was sent.",
+   "candidate": {
+    "draft": "Your sweater was delivered on November 18. There is no refund on record for it.",
+    "evidence": [
+     "item.status",
+     "item.delivered_at",
+     "item.refund"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.89,
+    "complete": 0.38,
+    "requires_human": 0.04
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "reply",
+    "text": "Your sweater was delivered on November 18, so it can be returned until November 25. Please confirm to request the return. Once confirmed, we will arrange a pickup and refund ₹3,499 to your UPI within 7 business days of inspection.",
+    "action": "return",
+    "problems": []
+   },
+   "fallback_scores": {
+    "supported": 0.77,
+    "complete": 0.83,
+    "requires_human": 0.05
+   },
+   "fallback_decision": "accept",
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 2,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 780,
+    "fallback": 2605,
+    "total": 3387
+   },
+   "cost_usd": 0.00011621400000000001,
+   "reply": "Your sweater was delivered on November 18, so it can be returned until November 25. Please confirm to request the return. Once confirmed, we will arrange a pickup and refund ₹3,499 to your UPI within 7 business days of inspection."
+  },
+  {
+   "id": "refund-016",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "rule_draft",
+   "baseline_reply": "A refund for your blouse is being processed. The refund of ₹1,899 was initiated on November 17 and is expected by November 26.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:36.480656+00:00",
+   "message": "My card was charged twice for this blouse, ₹1,899 both times, but I can see only one refund. Where is the refund for the second charge?",
+   "item_id": "ITM-8601",
+   "intent": "refund",
+   "route": "handoff",
+   "reason": "Jev scored the situation as needing a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "A refund for your blouse is being processed. The refund of ₹1,899 was initiated on November 17 and is expected by November 26.",
+    "evidence": [
+     "item.status",
+     "item.refund"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.92,
+    "complete": 0.08,
+    "requires_human": 0.98
+   },
+   "decision": "handoff",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 266,
+    "fallback": 0,
+    "total": 266
+   },
+   "cost_usd": 6.841800000000001e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "refund-017",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your overcoat has already been cancelled. The refund of ₹5,499 was initiated on November 20 and is expected by December 1.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:36.748451+00:00",
+   "message": "I did not place this order. Someone used my card without my permission and I cancelled it as soon as I saw the alert. I want this looked into. And when will the ₹5,499 come back?",
+   "item_id": "ITM-8701",
+   "intent": "cancel",
+   "route": "handoff",
+   "reason": "Jev scored the situation as needing a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your overcoat has already been cancelled. The refund of ₹5,499 was initiated on November 20 and is expected by December 1.",
+    "evidence": [
+     "item.status",
+     "item.refund"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.89,
+    "complete": 0.1,
+    "requires_human": 0.97
+   },
+   "decision": "handoff",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 282,
+    "fallback": 0,
+    "total": 283
+   },
+   "cost_usd": 6.2832e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "refund-018",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "no_rule_reply",
+   "baseline_reply": null,
+   "baseline_suitable": null,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:37.035064+00:00",
+   "message": "Nine more days?! Why does it take that long? If it isn't in my account by Monday I'm filing a chargeback with my bank.",
+   "item_id": "ITM-8801",
+   "intent": null,
+   "route": "handoff",
+   "reason": "The fallback asked for a person, so a support ticket was opened.",
+   "candidate": null,
+   "scores": null,
+   "decision": null,
+   "fallback": {
+    "kind": "handoff",
+    "text": "The customer threatens to file a chargeback if the refund is not credited by Monday.",
+    "action": null,
+    "problems": [
+     "weekday the order record cannot confirm: Monday"
+    ]
+   },
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 0,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 0,
+    "fallback": 2485,
+    "total": 2486
+   },
+   "cost_usd": 0.0,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "refund-019",
+   "flow": "refund",
+   "label_status": "ai_disputed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "A refund for your kurti is being processed. The refund of ₹1,450 was credited on November 16.",
+   "baseline_suitable": true,
+   "matched": null,
+   "suitable": null,
+   "needs_review": true,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:39.524776+00:00",
+   "message": "What is the refund status for my yellow chanderi kurti?",
+   "item_id": "ITM-8901",
+   "intent": "refund",
+   "route": "fallback",
+   "reason": "Jev accepted the fallback reply, so it was sent.",
+   "candidate": {
+    "draft": "A refund for your kurti is being processed. The refund of ₹1,450 was credited on November 16.",
+    "evidence": [
+     "item.status",
+     "item.refund"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.3,
+    "complete": 0.93,
+    "requires_human": 0.15
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "reply",
+    "text": "Your refund of ₹1,450 was credited on November 16.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": {
+    "supported": 0.98,
+    "complete": 0.98,
+    "requires_human": 0.1
+   },
+   "fallback_decision": "accept",
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 2,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 562,
+    "fallback": 2585,
+    "total": 3148
+   },
+   "cost_usd": 0.000139356,
+   "reply": "Your refund of ₹1,450 was credited on November 16."
+  },
+  {
+   "id": "refund-020",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your jumpsuit has been cancelled. The refund of ₹2,150 was credited on November 13.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": true,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:42.674396+00:00",
+   "message": "Has the refund for the jumpsuit I cancelled come through? I can't find it on my card statement. Which account did it go to?",
+   "item_id": "ITM-9001",
+   "intent": "refund",
+   "route": "fallback",
+   "reason": "Jev accepted the fallback reply, so it was sent.",
+   "candidate": {
+    "draft": "Your jumpsuit has been cancelled. The refund of ₹2,150 was credited on November 13.",
+    "evidence": [
+     "item.status",
+     "item.refund"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.97,
+    "complete": 0.2,
+    "requires_human": 0.17
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "reply",
+    "text": "Your refund of ₹2,150 was credited on November 13 to your UPI account.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": {
+    "supported": 0.92,
+    "complete": 0.84,
+    "requires_human": 0.14
+   },
+   "fallback_decision": "accept",
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 2,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 548,
+    "fallback": 2475,
+    "total": 3025
+   },
+   "cost_usd": 0.000128436,
+   "reply": "Your refund of ₹2,150 was credited on November 13 to your UPI account."
+  },
+  {
+   "id": "cancel-013",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your hoodie is packed and has not shipped yet, so it can still be cancelled for a full refund of ₹1,799. Please confirm to cancel it.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:45.700831+00:00",
+   "message": "Please cancel the grey hoodie and order the same one in blue instead, size M.",
+   "item_id": "ITM-6501",
+   "intent": "cancel",
+   "route": "handoff",
+   "reason": "Jev did not accept the fallback reply, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your hoodie is packed and has not shipped yet, so it can still be cancelled for a full refund of ₹1,799. Please confirm to cancel it.",
+    "evidence": [
+     "item.status",
+     "item.price_inr",
+     "policy.cancellation"
+    ],
+    "action": "cancel"
+   },
+   "scores": {
+    "supported": 0.9,
+    "complete": 0.07,
+    "requires_human": 0.04
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "reply",
+    "text": "Your grey fleece hoodie is packed and has not shipped yet, so it can still be cancelled. Please confirm to cancel it.",
+    "action": "cancel",
+    "problems": []
+   },
+   "fallback_scores": {
+    "supported": 0.92,
+    "complete": 0.06,
+    "requires_human": 0.06
+   },
+   "fallback_decision": "reject",
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 2,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 548,
+    "fallback": 1883,
+    "total": 2432
+   },
+   "cost_usd": 0.00010798200000000001,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "cancel-014",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your belt is packed and has not shipped yet, so it can still be cancelled for a full refund of ₹1,199. Please confirm to cancel it.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": true,
+   "pending_action": "cancel",
+   "at": "2026-11-21T15:52:48.134383+00:00",
+   "message": "Hello, I ordered this belt as a gift but the occasion got postponed, so please cancel it. Will I get the full amount back, and how long does the refund take?",
+   "item_id": "ITM-6502",
+   "intent": "cancel",
+   "route": "fallback",
+   "reason": "Jev accepted the fallback reply, so it was sent.",
+   "candidate": {
+    "draft": "Your belt is packed and has not shipped yet, so it can still be cancelled for a full refund of ₹1,199. Please confirm to cancel it.",
+    "evidence": [
+     "item.status",
+     "item.price_inr",
+     "policy.cancellation"
+    ],
+    "action": "cancel"
+   },
+   "scores": {
+    "supported": 0.91,
+    "complete": 0.08,
+    "requires_human": 0.03
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "reply",
+    "text": "Your belt is packed and has not shipped yet, so it can still be cancelled for a full refund of ₹1,199. Please confirm to cancel it. Once the cancellation is confirmed, the refund will go to your original payment method and be credited within 7 business days.",
+    "action": "cancel",
+    "problems": []
+   },
+   "fallback_scores": {
+    "supported": 0.93,
+    "complete": 0.96,
+    "requires_human": 0.03
+   },
+   "fallback_decision": "accept",
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 2,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 530,
+    "fallback": 3581,
+    "total": 4114
+   },
+   "cost_usd": 0.00011104800000000001,
+   "reply": "Your belt is packed and has not shipped yet, so it can still be cancelled for a full refund of ₹1,199. Please confirm to cancel it. Once the cancellation is confirmed, the refund will go to your original payment method and be credited within 7 business days."
+  },
+  {
+   "id": "cancel-015",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your jacket was delivered on November 14, so it can no longer be cancelled. It can still be returned; the last eligible day is November 21.",
+   "baseline_suitable": true,
+   "matched": "cancel-015-a",
+   "suitable": true,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:52.253905+00:00",
+   "message": "Can I cancel the denim jacket? If that's not possible, what's the last date I can send it back?",
+   "item_id": "ITM-6601",
+   "intent": "cancel",
+   "route": "rule",
+   "reason": "Jev accepted the rule draft, so it was sent.",
+   "candidate": {
+    "draft": "Your jacket was delivered on November 14, so it can no longer be cancelled. It can still be returned; the last eligible day is November 21.",
+    "evidence": [
+     "item.status",
+     "item.delivered_at",
+     "policy.cancellation",
+     "item.return_deadline",
+     "policy.returns"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.94,
+    "complete": 0.98,
+    "requires_human": 0.02
+   },
+   "decision": "accept",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 281,
+    "fallback": 0,
+    "total": 281
+   },
+   "cost_usd": 5.8506e-05,
+   "reply": "Your jacket was delivered on November 14, so it can no longer be cancelled. It can still be returned; the last eligible day is November 21."
+  },
+  {
+   "id": "cancel-016",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your jacket was delivered on November 14, so it can no longer be cancelled. Its return window closed on November 21.",
+   "baseline_suitable": true,
+   "matched": "cancel-016-a",
+   "suitable": true,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:52.537526+00:00",
+   "message": "need to cancel my jacket order. if not then til when can i retrun it",
+   "item_id": "ITM-6601",
+   "intent": "cancel",
+   "route": "rule",
+   "reason": "Jev accepted the rule draft, so it was sent.",
+   "candidate": {
+    "draft": "Your jacket was delivered on November 14, so it can no longer be cancelled. Its return window closed on November 21.",
+    "evidence": [
+     "item.status",
+     "item.delivered_at",
+     "policy.cancellation",
+     "item.return_deadline",
+     "policy.returns"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.92,
+    "complete": 0.95,
+    "requires_human": 0.05
+   },
+   "decision": "accept",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 279,
+    "fallback": 0,
+    "total": 280
+   },
+   "cost_usd": 5.7708000000000004e-05,
+   "reply": "Your jacket was delivered on November 14, so it can no longer be cancelled. Its return window closed on November 21."
+  },
+  {
+   "id": "cancel-017",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your dress was delivered on November 19, so it can no longer be cancelled. It can still be returned; the last eligible day is November 26.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:52.820705+00:00",
+   "message": "You sent the wrong dress!! I ordered the pink floral one and got a plain yellow one. Cancel the order and tell me how long the refund will take.",
+   "item_id": "ITM-6701",
+   "intent": "cancel",
+   "route": "handoff",
+   "reason": "Jev scored the situation as needing a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your dress was delivered on November 19, so it can no longer be cancelled. It can still be returned; the last eligible day is November 26.",
+    "evidence": [
+     "item.status",
+     "item.delivered_at",
+     "policy.cancellation",
+     "item.return_deadline",
+     "policy.returns"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.97,
+    "complete": 0.08,
+    "requires_human": 0.98
+   },
+   "decision": "handoff",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 262,
+    "fallback": 0,
+    "total": 263
+   },
+   "cost_usd": 5.8842000000000003e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "cancel-018",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your dress was delivered on November 19. There is no refund on record for it.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:53.087971+00:00",
+   "message": "I'm not sending this back at my own cost, it was YOUR mistake. Refund the full ₹2,199 or I will dispute the charge with my bank.",
+   "item_id": "ITM-6701",
+   "intent": "refund",
+   "route": "handoff",
+   "reason": "Jev scored the situation as needing a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your dress was delivered on November 19. There is no refund on record for it.",
+    "evidence": [
+     "item.status",
+     "item.delivered_at",
+     "item.refund"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.78,
+    "complete": 0.03,
+    "requires_human": 0.99
+   },
+   "decision": "handoff",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 290,
+    "fallback": 0,
+    "total": 291
+   },
+   "cost_usd": 6.094200000000001e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "cancel-019",
+   "flow": "cancel",
+   "label_status": "ai_draft",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "A return for your cardigan was requested on November 20, so the item can no longer be cancelled. Pickup is scheduled for November 22.",
+   "baseline_suitable": true,
+   "matched": "cancel-019-a",
+   "suitable": true,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:53.379762+00:00",
+   "message": "I would like to cancel my rust wool cardigan.",
+   "item_id": "ITM-6801",
+   "intent": "cancel",
+   "route": "rule",
+   "reason": "Jev accepted the rule draft, so it was sent.",
+   "candidate": {
+    "draft": "A return for your cardigan was requested on November 20, so the item can no longer be cancelled. Pickup is scheduled for November 22.",
+    "evidence": [
+     "item.status",
+     "item.return",
+     "policy.cancellation"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.79,
+    "complete": 0.94,
+    "requires_human": 0.05
+   },
+   "decision": "accept",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 278,
+    "fallback": 0,
+    "total": 278
+   },
+   "cost_usd": 6.1908e-05,
+   "reply": "A return for your cardigan was requested on November 20, so the item can no longer be cancelled. Pickup is scheduled for November 22."
+  },
+  {
+   "id": "cancel-020",
+   "flow": "cancel",
+   "label_status": "ai_draft",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "A return for your cardigan was requested on November 20, so the item can no longer be cancelled. Pickup is scheduled for November 22.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:53.660063+00:00",
+   "message": "no i meant cancel the RETURN, not the order. i want to keep the cardigan now",
+   "item_id": "ITM-6801",
+   "intent": "cancel",
+   "route": "handoff",
+   "reason": "Jev did not accept the fallback reply, so a support ticket was opened.",
+   "candidate": {
+    "draft": "A return for your cardigan was requested on November 20, so the item can no longer be cancelled. Pickup is scheduled for November 22.",
+    "evidence": [
+     "item.status",
+     "item.return",
+     "policy.cancellation"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.74,
+    "complete": 0.22,
+    "requires_human": 0.06
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "reply",
+    "text": "Your cardigan return was requested on November 20, so it can no longer be cancelled. Pickup is scheduled for November 22.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": {
+    "supported": 0.73,
+    "complete": 0.4,
+    "requires_human": 0.05
+   },
+   "fallback_decision": "reject",
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 2,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 551,
+    "fallback": 2703,
+    "total": 3255
+   },
+   "cost_usd": 0.000128646,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "return-013",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "mandated_ticket",
+   "baseline_reply": null,
+   "baseline_suitable": null,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:56.917077+00:00",
+   "message": "My jacket was delivered with a big ink stain across the back and a button missing. I want to return it and get my money back.",
+   "item_id": "ITM-4016",
+   "intent": "track",
+   "route": "mandated_ticket",
+   "reason": "Backend rule delivery_scan_disputed applies, so a support ticket was opened.",
+   "candidate": null,
+   "scores": null,
+   "decision": null,
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 0,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 0,
+    "fallback": 0,
+    "total": 0
+   },
+   "cost_usd": 0.0,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "return-014",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your kurti was delivered on November 19, so it can still be returned. The last eligible day is November 26. Please confirm to request the return; we then arrange a pickup, and the refund is initiated once the item passes inspection.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:56.920382+00:00",
+   "message": "I ordered the kurti in S but the one in the parcel is an XL. I'd like to return it please.",
+   "item_id": "ITM-4017",
+   "intent": "return",
+   "route": "handoff",
+   "reason": "Jev scored the situation as needing a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your kurti was delivered on November 19, so it can still be returned. The last eligible day is November 26. Please confirm to request the return; we then arrange a pickup, and the refund is initiated once the item passes inspection.",
+    "evidence": [
+     "item.status",
+     "item.delivered_at",
+     "item.return_deadline",
+     "policy.returns"
+    ],
+    "action": "return"
+   },
+   "scores": {
+    "supported": 0.95,
+    "complete": 0.83,
+    "requires_human": 0.98
+   },
+   "decision": "handoff",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 268,
+    "fallback": 0,
+    "total": 268
+   },
+   "cost_usd": 5.9472e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "return-015",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your hoodie was delivered on November 15, so it can still be returned. The last eligible day is November 22. Please confirm to request the return; we then arrange a pickup, and the refund is initiated once the item passes inspection.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:57.189612+00:00",
+   "message": "The reason is a broken needle left inside the hood lining - it scratched my son's neck. Honestly this thing is dangerous. Is the return still on, and will someone call me about it?",
+   "item_id": "ITM-4018",
+   "intent": "return",
+   "route": "handoff",
+   "reason": "Jev scored the situation as needing a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your hoodie was delivered on November 15, so it can still be returned. The last eligible day is November 22. Please confirm to request the return; we then arrange a pickup, and the refund is initiated once the item passes inspection.",
+    "evidence": [
+     "item.status",
+     "item.delivered_at",
+     "item.return_deadline",
+     "policy.returns"
+    ],
+    "action": "return"
+   },
+   "scores": {
+    "supported": 0.92,
+    "complete": 0.06,
+    "requires_human": 0.99
+   },
+   "decision": "handoff",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 255,
+    "fallback": 0,
+    "total": 255
+   },
+   "cost_usd": 6.2916e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "return-016",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your sweater was delivered on November 14, so it can still be returned. The last eligible day is November 21. Please confirm to request the return; we then arrange a pickup, and the refund is initiated once the item passes inspection.",
+   "baseline_suitable": true,
+   "matched": "return-016-a",
+   "suitable": true,
+   "needs_review": false,
+   "pending_action": "return",
+   "at": "2026-11-21T15:52:57.446396+00:00",
+   "message": "Hello, is it too late to return the sweater? It was a gift and it's not really my style.",
+   "item_id": "ITM-4019",
+   "intent": "return",
+   "route": "rule",
+   "reason": "Jev accepted the rule draft, so it was sent.",
+   "candidate": {
+    "draft": "Your sweater was delivered on November 14, so it can still be returned. The last eligible day is November 21. Please confirm to request the return; we then arrange a pickup, and the refund is initiated once the item passes inspection.",
+    "evidence": [
+     "item.status",
+     "item.delivered_at",
+     "item.return_deadline",
+     "policy.returns"
+    ],
+    "action": "return"
+   },
+   "scores": {
+    "supported": 0.94,
+    "complete": 0.95,
+    "requires_human": 0.03
+   },
+   "decision": "accept",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 256,
+    "fallback": 0,
+    "total": 256
+   },
+   "cost_usd": 5.938800000000001e-05,
+   "reply": "Your sweater was delivered on November 14, so it can still be returned. The last eligible day is November 21. Please confirm to request the return; we then arrange a pickup, and the refund is initiated once the item passes inspection."
+  },
+  {
+   "id": "return-017",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your skirt was delivered on November 13. Its return window closed on November 20, so it can no longer be returned.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": true,
+   "pending_action": null,
+   "at": "2026-11-21T15:52:57.704228+00:00",
+   "message": "Can I still return the black skirt?? It's barley been a week. And if not, can I at least cancel the order and get my money that way?",
+   "item_id": "ITM-4020",
+   "intent": "return",
+   "route": "fallback",
+   "reason": "Jev accepted the fallback reply, so it was sent.",
+   "candidate": {
+    "draft": "Your skirt was delivered on November 13. Its return window closed on November 20, so it can no longer be returned.",
+    "evidence": [
+     "item.status",
+     "item.delivered_at",
+     "item.return_deadline",
+     "policy.returns"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.95,
+    "complete": 0.05,
+    "requires_human": 0.04
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "reply",
+    "text": "Your skirt was delivered on November 13, so it can be returned until November 20. Since today is November 21, the return window has closed and it can no longer be returned or cancelled.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": {
+    "supported": 0.88,
+    "complete": 0.93,
+    "requires_human": 0.04
+   },
+   "fallback_decision": "accept",
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 2,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 548,
+    "fallback": 3395,
+    "total": 3944
+   },
+   "cost_usd": 0.00011768400000000001,
+   "reply": "Your skirt was delivered on November 13, so it can be returned until November 20. Since today is November 21, the return window has closed and it can no longer be returned or cancelled."
+  },
+  {
+   "id": "return-018",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your sweater was delivered on November 14. Its return window closed on November 21, so it can no longer be returned.",
+   "baseline_suitable": true,
+   "matched": "return-018-a",
+   "suitable": true,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:53:01.651345+00:00",
+   "message": "Hello, is it too late to return the sweater? It was a gift and it's not really my style.",
+   "item_id": "ITM-4019",
+   "intent": "return",
+   "route": "rule",
+   "reason": "Jev accepted the rule draft, so it was sent.",
+   "candidate": {
+    "draft": "Your sweater was delivered on November 14. Its return window closed on November 21, so it can no longer be returned.",
+    "evidence": [
+     "item.status",
+     "item.delivered_at",
+     "item.return_deadline",
+     "policy.returns"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.93,
+    "complete": 0.94,
+    "requires_human": 0.04
+   },
+   "decision": "accept",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 266,
+    "fallback": 0,
+    "total": 267
+   },
+   "cost_usd": 5.817e-05,
+   "reply": "Your sweater was delivered on November 14. Its return window closed on November 21, so it can no longer be returned."
+  },
+  {
+   "id": "return-019",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "A return for your trousers was requested on November 20. Pickup is scheduled for November 22.",
+   "baseline_suitable": true,
+   "matched": "return-019-a",
+   "suitable": true,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:53:01.922250+00:00",
+   "message": "I would like to return my charcoal formal trousers.",
+   "item_id": "ITM-4022",
+   "intent": "return",
+   "route": "rule",
+   "reason": "Jev accepted the rule draft, so it was sent.",
+   "candidate": {
+    "draft": "A return for your trousers was requested on November 20. Pickup is scheduled for November 22.",
+    "evidence": [
+     "item.status",
+     "item.return"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.86,
+    "complete": 0.82,
+    "requires_human": 0.06
+   },
+   "decision": "accept",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 425,
+    "fallback": 0,
+    "total": 425
+   },
+   "cost_usd": 6.165600000000001e-05,
+   "reply": "A return for your trousers was requested on November 20. Pickup is scheduled for November 22."
+  },
+  {
+   "id": "return-020",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "no_rule_reply",
+   "baseline_reply": null,
+   "baseline_suitable": null,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:53:02.348701+00:00",
+   "message": "November 22 was yesterday and nobody came!! im done with this bot. Let me talk to an actual person.",
+   "item_id": "ITM-4024",
+   "intent": null,
+   "route": "handoff",
+   "reason": "The fallback asked for a person, so a support ticket was opened.",
+   "candidate": null,
+   "scores": null,
+   "decision": null,
+   "fallback": {
+    "kind": "handoff",
+    "text": "The customer explicitly asks to speak to a person.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 0,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 0,
+    "fallback": 2253,
+    "total": 2253
+   },
+   "cost_usd": 0.0,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "missing-013",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your dupatta is still in transit. It was expected on November 18 and has not been delivered yet.",
+   "baseline_suitable": true,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:53:04.610260+00:00",
+   "message": "I have not received my pink bandhani dupatta.",
+   "item_id": "ITM-3115",
+   "intent": "missing",
+   "route": "handoff",
+   "reason": "The fallback asked for a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your dupatta is still in transit. It was expected on November 18 and has not been delivered yet.",
+    "evidence": [
+     "item.status",
+     "item.eta",
+     "policy.missing_delivery"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.62,
+    "complete": 0.78,
+    "requires_human": 0.12
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "handoff",
+    "text": "The customer says they have not received their dupatta, which the courier scan shows as delivered.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 274,
+    "fallback": 2006,
+    "total": 2282
+   },
+   "cost_usd": 5.4054e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "missing-014",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your kurti is still in transit. It was expected on November 17 and has not been delivered yet.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:53:06.895539+00:00",
+   "message": "My kurti was suppose to reach on the 17th and it STILL has not come. Where is it? If you cannot deliver it, just refund my money.",
+   "item_id": "ITM-3116",
+   "intent": "missing",
+   "route": "handoff",
+   "reason": "The fallback asked for a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your kurti is still in transit. It was expected on November 17 and has not been delivered yet.",
+    "evidence": [
+     "item.status",
+     "item.eta",
+     "policy.missing_delivery"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.73,
+    "complete": 0.06,
+    "requires_human": 0.09
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "handoff",
+    "text": "The customer reports a missing delivery and requests a refund.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 268,
+    "fallback": 1855,
+    "total": 2124
+   },
+   "cost_usd": 5.4978e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "missing-015",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your cardigan has shipped. It was expected on November 19 and has not been delivered yet.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:53:09.021276+00:00",
+   "message": "But the 19th was yesterday! Is it lost? When will it actually come?",
+   "item_id": "ITM-3117",
+   "intent": "track",
+   "route": "handoff",
+   "reason": "The fallback asked for a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your cardigan has shipped. It was expected on November 19 and has not been delivered yet.",
+    "evidence": [
+     "item.status",
+     "item.eta"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.8,
+    "complete": 0.06,
+    "requires_human": 0.08
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "handoff",
+    "text": "The customer says the courier scan shows the item as delivered and they did not receive it.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 344,
+    "fallback": 1939,
+    "total": 2284
+   },
+   "cost_usd": 5.5902e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "missing-016",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your blouse is still in transit. It is expected on November 23.",
+   "baseline_suitable": true,
+   "matched": "missing-016-a",
+   "suitable": true,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:53:11.310549+00:00",
+   "message": "Only the saree came in the parcel on Thursday. The blouse from the same order is missing. Did you forget to send it?",
+   "item_id": "ITM-3119",
+   "intent": "missing",
+   "route": "rule",
+   "reason": "Jev accepted the rule draft, so it was sent.",
+   "candidate": {
+    "draft": "Your blouse is still in transit. It is expected on November 23.",
+    "evidence": [
+     "item.status",
+     "item.eta",
+     "policy.missing_delivery"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.84,
+    "complete": 0.8,
+    "requires_human": 0.15
+   },
+   "decision": "accept",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": null,
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 296,
+    "fallback": 0,
+    "total": 297
+   },
+   "cost_usd": 5.4432e-05,
+   "reply": "Your blouse is still in transit. It is expected on November 23."
+  },
+  {
+   "id": "missing-017",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your salwar is packed and has not shipped yet. It is expected on November 26.",
+   "baseline_suitable": true,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:53:11.609720+00:00",
+   "message": "got the kurta, but wheres the salwar?? its one order, why is half of it missing",
+   "item_id": "ITM-3121",
+   "intent": "missing",
+   "route": "handoff",
+   "reason": "The fallback asked for a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your salwar is packed and has not shipped yet. It is expected on November 26.",
+    "evidence": [
+     "item.status",
+     "item.eta"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.9,
+    "complete": 0.66,
+    "requires_human": 0.16
+   },
+   "decision": "reject",
+   "fallback": {
+    "kind": "handoff",
+    "text": "The customer reports that half of their order is missing.",
+    "action": null,
+    "problems": []
+   },
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 263,
+    "fallback": 1630,
+    "total": 1894
+   },
+   "cost_usd": 5.3802000000000004e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "missing-018",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "requires_human": false,
+   "baseline": "no_rule_reply",
+   "baseline_reply": null,
+   "baseline_suitable": null,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:53:13.505749+00:00",
+   "message": "But the shawl from the same order reached me on Tuesday. Why were they not sent together? And will the stole definitely come tomorrow?",
+   "item_id": "ITM-3123",
+   "intent": null,
+   "route": "handoff",
+   "reason": "The fallback asked for a person, so a support ticket was opened.",
+   "candidate": null,
+   "scores": null,
+   "decision": null,
+   "fallback": {
+    "kind": "handoff",
+    "text": "The customer reports that a shawl from the same order was delivered while their stole has not arrived, and asks about the delivery status.",
+    "action": null,
+    "problems": [
+     "status not in the order record: was delivered"
+    ]
+   },
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 0,
+    "fallback": 1
+   },
+   "elapsed_ms": {
+    "jev": 0,
+    "fallback": 2411,
+    "total": 2412
+   },
+   "cost_usd": 0.0,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "missing-019",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your jacket is still in transit. It is expected on November 23.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:53:15.920250+00:00",
+   "message": "Eight days since I ordered and the Nehru jacket has still not reached me. This is cheating. If it is not here by Monday I am filing a case in consumer court.",
+   "item_id": "ITM-3124",
+   "intent": "missing",
+   "route": "handoff",
+   "reason": "Jev scored the situation as needing a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your jacket is still in transit. It is expected on November 23.",
+    "evidence": [
+     "item.status",
+     "item.eta",
+     "policy.missing_delivery"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.9,
+    "complete": 0.14,
+    "requires_human": 0.98
+   },
+   "decision": "handoff",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 256,
+    "fallback": 0,
+    "total": 256
+   },
+   "cost_usd": 5.4936e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  },
+  {
+   "id": "missing-020",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "requires_human": true,
+   "baseline": "rule_draft",
+   "baseline_reply": "Your tunic has shipped. It is expected on November 24.",
+   "baseline_suitable": false,
+   "matched": null,
+   "suitable": null,
+   "needs_review": false,
+   "pending_action": null,
+   "at": "2026-11-21T15:53:16.179428+00:00",
+   "message": "I was charged twice for this order - two debits of ₹1,899 on my UPI - and the tunic has not even arrived. Where is it, and when do I get the extra money back?",
+   "item_id": "ITM-3125",
+   "intent": "track",
+   "route": "handoff",
+   "reason": "Jev scored the situation as needing a person, so a support ticket was opened.",
+   "candidate": {
+    "draft": "Your tunic has shipped. It is expected on November 24.",
+    "evidence": [
+     "item.status",
+     "item.eta"
+    ],
+    "action": null
+   },
+   "scores": {
+    "supported": 0.97,
+    "complete": 0.03,
+    "requires_human": 0.98
+   },
+   "decision": "handoff",
+   "fallback": null,
+   "fallback_scores": null,
+   "fallback_decision": null,
+   "error": null,
+   "ticket_ref": "TKT-0001",
+   "calls": {
+    "jev": 1,
+    "fallback": 0
+   },
+   "elapsed_ms": {
+    "jev": 288,
+    "fallback": 0,
+    "total": 289
+   },
+   "cost_usd": 5.5188e-05,
+   "reply": "I have passed this to our support team. Your reference is TKT-0001."
+  }
+ ]
+}

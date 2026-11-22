@@ -1,0 +1,2628 @@
+{
+ "mode": "gate",
+ "split": "test",
+ "only": null,
+ "at": "2026-11-21T15:52:18.691709+00:00",
+ "gate": {
+  "version": "pilot-1",
+  "status": "cutoffs confirmed on the development split on 2026-11-21 against AI-drafted labels; not yet reviewed by a person",
+  "model": "jev-1.14.0",
+  "policy_version": "2026-11-01",
+  "questions": {
+   "supported": {
+    "instructions": "Does every factual claim and every promise in `proposed_reply` follow from `order_record` and `store_policy`, taking `today` as the current date?",
+    "criteria": {
+     "true": "each status, date, amount, offered action and promise in the reply is stated in the order record or the store policy, or follows directly from them; a reply that only asks a question makes no unsupported claim",
+     "false": "at least one claim or promise in the reply is not stated in the order record or the store policy and does not follow from them, or contradicts them"
+    }
+   },
+   "complete": {
+    "instructions": "Does `proposed_reply` cover every part of `customer_message`, read in the context of `conversation_history`?",
+    "criteria": {
+     "true": "the reply answers every question in the customer message and responds to every request, by offering the action for confirmation or by explaining why it cannot be done",
+     "false": "at least one question or request in the customer message gets no answer in the reply"
+    }
+   },
+   "requires_human": {
+    "instructions": "Does the situation described by `customer_message`, `conversation_history` and `order_record` meet one of the escalation conditions listed in `store_policy`?",
+    "criteria": {
+     "true": "at least one escalation condition in the store policy applies to this customer's situation",
+     "false": "none of the escalation conditions in the store policy applies to this customer's situation"
+    }
+   }
+  },
+  "thresholds": {
+   "supported_min": 0.7,
+   "complete_min": 0.7,
+   "requires_human_handoff": 0.7,
+   "requires_human_low": 0.3
+  },
+  "usd_per_mtok_input": 0.042
+ },
+ "metrics": {
+  "overall": {
+   "situations": 40,
+   "candidates": 134,
+   "accepted_that_were_unsuitable": {
+    "n": 1,
+    "d": 21,
+    "rate": 0.0476
+   },
+   "unsuitable_that_were_accepted": {
+    "n": 1,
+    "d": 105,
+    "rate": 0.0095
+   },
+   "failed_label": {
+    "supported": 1,
+    "complete": 0,
+    "requires_human": 0
+   },
+   "suitable_not_accepted": {
+    "n": 9,
+    "d": 29,
+    "rate": 0.3103
+   },
+   "situations_that_require_a_human": 14,
+   "required_handoffs_missed": {
+    "n": 3,
+    "d": 44,
+    "rate": 0.0682
+   },
+   "required_handoffs_accepted": {
+    "n": 0,
+    "d": 44,
+    "rate": 0.0
+   },
+   "confusion": {
+    "supported >= 0.7": {
+     "tp": 52,
+     "fn": 17,
+     "fp": 1,
+     "tn": 64
+    },
+    "complete >= 0.7": {
+     "tp": 65,
+     "fn": 42,
+     "fp": 0,
+     "tn": 27
+    },
+    "requires_human >= 0.7": {
+     "tp": 41,
+     "fn": 3,
+     "fp": 0,
+     "tn": 90
+    },
+    "requires_human >= 0.3": {
+     "tp": 44,
+     "fn": 0,
+     "fp": 1,
+     "tn": 89
+    }
+   },
+   "ids": {
+    "accepted_that_were_unsuitable": [
+     "cancel-015-c (supported)"
+    ],
+    "suitable_not_accepted": [
+     "track-015-b",
+     "track-016-a",
+     "track-018-b",
+     "refund-015-a",
+     "refund-019-a",
+     "cancel-020-b",
+     "missing-013-a",
+     "missing-014-b",
+     "missing-017-a"
+    ],
+    "required_handoffs_missed": [
+     "refund-018-a",
+     "refund-018-b",
+     "refund-018-c"
+    ],
+    "required_handoffs_accepted": []
+   }
+  },
+  "track": {
+   "situations": 8,
+   "candidates": 29,
+   "accepted_that_were_unsuitable": {
+    "n": 0,
+    "d": 3,
+    "rate": 0.0
+   },
+   "unsuitable_that_were_accepted": {
+    "n": 0,
+    "d": 23,
+    "rate": 0.0
+   },
+   "failed_label": {
+    "supported": 0,
+    "complete": 0,
+    "requires_human": 0
+   },
+   "suitable_not_accepted": {
+    "n": 3,
+    "d": 6,
+    "rate": 0.5
+   },
+   "situations_that_require_a_human": 3,
+   "required_handoffs_missed": {
+    "n": 0,
+    "d": 10,
+    "rate": 0.0
+   },
+   "required_handoffs_accepted": {
+    "n": 0,
+    "d": 10,
+    "rate": 0.0
+   },
+   "confusion": {
+    "supported >= 0.7": {
+     "tp": 10,
+     "fn": 5,
+     "fp": 0,
+     "tn": 14
+    },
+    "complete >= 0.7": {
+     "tp": 11,
+     "fn": 12,
+     "fp": 0,
+     "tn": 6
+    },
+    "requires_human >= 0.7": {
+     "tp": 10,
+     "fn": 0,
+     "fp": 0,
+     "tn": 19
+    },
+    "requires_human >= 0.3": {
+     "tp": 10,
+     "fn": 0,
+     "fp": 0,
+     "tn": 19
+    }
+   },
+   "ids": {
+    "accepted_that_were_unsuitable": [],
+    "suitable_not_accepted": [
+     "track-015-b",
+     "track-016-a",
+     "track-018-b"
+    ],
+    "required_handoffs_missed": [],
+    "required_handoffs_accepted": []
+   }
+  },
+  "refund": {
+   "situations": 8,
+   "candidates": 26,
+   "accepted_that_were_unsuitable": {
+    "n": 0,
+    "d": 4,
+    "rate": 0.0
+   },
+   "unsuitable_that_were_accepted": {
+    "n": 0,
+    "d": 20,
+    "rate": 0.0
+   },
+   "failed_label": {
+    "supported": 0,
+    "complete": 0,
+    "requires_human": 0
+   },
+   "suitable_not_accepted": {
+    "n": 2,
+    "d": 6,
+    "rate": 0.3333
+   },
+   "situations_that_require_a_human": 3,
+   "required_handoffs_missed": {
+    "n": 3,
+    "d": 9,
+    "rate": 0.3333
+   },
+   "required_handoffs_accepted": {
+    "n": 0,
+    "d": 9,
+    "rate": 0.0
+   },
+   "confusion": {
+    "supported >= 0.7": {
+     "tp": 10,
+     "fn": 4,
+     "fp": 0,
+     "tn": 12
+    },
+    "complete >= 0.7": {
+     "tp": 13,
+     "fn": 8,
+     "fp": 0,
+     "tn": 5
+    },
+    "requires_human >= 0.7": {
+     "tp": 6,
+     "fn": 3,
+     "fp": 0,
+     "tn": 17
+    },
+    "requires_human >= 0.3": {
+     "tp": 9,
+     "fn": 0,
+     "fp": 0,
+     "tn": 17
+    }
+   },
+   "ids": {
+    "accepted_that_were_unsuitable": [],
+    "suitable_not_accepted": [
+     "refund-015-a",
+     "refund-019-a"
+    ],
+    "required_handoffs_missed": [
+     "refund-018-a",
+     "refund-018-b",
+     "refund-018-c"
+    ],
+    "required_handoffs_accepted": []
+   }
+  },
+  "cancel": {
+   "situations": 8,
+   "candidates": 26,
+   "accepted_that_were_unsuitable": {
+    "n": 1,
+    "d": 6,
+    "rate": 0.1667
+   },
+   "unsuitable_that_were_accepted": {
+    "n": 1,
+    "d": 20,
+    "rate": 0.05
+   },
+   "failed_label": {
+    "supported": 1,
+    "complete": 0,
+    "requires_human": 0
+   },
+   "suitable_not_accepted": {
+    "n": 1,
+    "d": 6,
+    "rate": 0.1667
+   },
+   "situations_that_require_a_human": 2,
+   "required_handoffs_missed": {
+    "n": 0,
+    "d": 6,
+    "rate": 0.0
+   },
+   "required_handoffs_accepted": {
+    "n": 0,
+    "d": 6,
+    "rate": 0.0
+   },
+   "confusion": {
+    "supported >= 0.7": {
+     "tp": 11,
+     "fn": 3,
+     "fp": 1,
+     "tn": 11
+    },
+    "complete >= 0.7": {
+     "tp": 15,
+     "fn": 4,
+     "fp": 0,
+     "tn": 7
+    },
+    "requires_human >= 0.7": {
+     "tp": 6,
+     "fn": 0,
+     "fp": 0,
+     "tn": 20
+    },
+    "requires_human >= 0.3": {
+     "tp": 6,
+     "fn": 0,
+     "fp": 0,
+     "tn": 20
+    }
+   },
+   "ids": {
+    "accepted_that_were_unsuitable": [
+     "cancel-015-c (supported)"
+    ],
+    "suitable_not_accepted": [
+     "cancel-020-b"
+    ],
+    "required_handoffs_missed": [],
+    "required_handoffs_accepted": []
+   }
+  },
+  "return": {
+   "situations": 8,
+   "candidates": 26,
+   "accepted_that_were_unsuitable": {
+    "n": 0,
+    "d": 4,
+    "rate": 0.0
+   },
+   "unsuitable_that_were_accepted": {
+    "n": 0,
+    "d": 22,
+    "rate": 0.0
+   },
+   "failed_label": {
+    "supported": 0,
+    "complete": 0,
+    "requires_human": 0
+   },
+   "suitable_not_accepted": {
+    "n": 0,
+    "d": 4,
+    "rate": 0.0
+   },
+   "situations_that_require_a_human": 4,
+   "required_handoffs_missed": {
+    "n": 0,
+    "d": 12,
+    "rate": 0.0
+   },
+   "required_handoffs_accepted": {
+    "n": 0,
+    "d": 12,
+    "rate": 0.0
+   },
+   "confusion": {
+    "supported >= 0.7": {
+     "tp": 11,
+     "fn": 2,
+     "fp": 0,
+     "tn": 13
+    },
+    "complete >= 0.7": {
+     "tp": 15,
+     "fn": 6,
+     "fp": 0,
+     "tn": 5
+    },
+    "requires_human >= 0.7": {
+     "tp": 12,
+     "fn": 0,
+     "fp": 0,
+     "tn": 14
+    },
+    "requires_human >= 0.3": {
+     "tp": 12,
+     "fn": 0,
+     "fp": 0,
+     "tn": 14
+    }
+   },
+   "ids": {
+    "accepted_that_were_unsuitable": [],
+    "suitable_not_accepted": [],
+    "required_handoffs_missed": [],
+    "required_handoffs_accepted": []
+   }
+  },
+  "missing": {
+   "situations": 8,
+   "candidates": 27,
+   "accepted_that_were_unsuitable": {
+    "n": 0,
+    "d": 4,
+    "rate": 0.0
+   },
+   "unsuitable_that_were_accepted": {
+    "n": 0,
+    "d": 20,
+    "rate": 0.0
+   },
+   "failed_label": {
+    "supported": 0,
+    "complete": 0,
+    "requires_human": 0
+   },
+   "suitable_not_accepted": {
+    "n": 3,
+    "d": 7,
+    "rate": 0.4286
+   },
+   "situations_that_require_a_human": 2,
+   "required_handoffs_missed": {
+    "n": 0,
+    "d": 7,
+    "rate": 0.0
+   },
+   "required_handoffs_accepted": {
+    "n": 0,
+    "d": 7,
+    "rate": 0.0
+   },
+   "confusion": {
+    "supported >= 0.7": {
+     "tp": 10,
+     "fn": 3,
+     "fp": 0,
+     "tn": 14
+    },
+    "complete >= 0.7": {
+     "tp": 11,
+     "fn": 12,
+     "fp": 0,
+     "tn": 4
+    },
+    "requires_human >= 0.7": {
+     "tp": 7,
+     "fn": 0,
+     "fp": 0,
+     "tn": 20
+    },
+    "requires_human >= 0.3": {
+     "tp": 7,
+     "fn": 0,
+     "fp": 1,
+     "tn": 19
+    }
+   },
+   "ids": {
+    "accepted_that_were_unsuitable": [],
+    "suitable_not_accepted": [
+     "missing-013-a",
+     "missing-014-b",
+     "missing-017-a"
+    ],
+    "required_handoffs_missed": [],
+    "required_handoffs_accepted": []
+   }
+  }
+ },
+ "sweep": null,
+ "rows": [
+  {
+   "id": "track-013-a",
+   "situation": "track-013",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.96,
+    "complete": 0.36,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "track-013-b",
+   "situation": "track-013",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.04,
+    "complete": 0.45,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "track-013-c",
+   "situation": "track-013",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.12,
+    "requires_human": 0.97
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "track-014-a",
+   "situation": "track-014",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.45,
+    "complete": 0.67,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "track-014-b",
+   "situation": "track-014",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.22,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "track-014-c",
+   "situation": "track-014",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.34,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "track-014-d",
+   "situation": "track-014",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.35,
+    "complete": 0.03,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "track-015-a",
+   "situation": "track-015",
+   "flow": "track",
+   "label_status": "ai_draft",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.79,
+    "complete": 0.05,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-015-b",
+   "situation": "track-015",
+   "flow": "track",
+   "label_status": "ai_draft",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.86,
+    "complete": 0.27,
+    "requires_human": 0.08
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-015-c",
+   "situation": "track-015",
+   "flow": "track",
+   "label_status": "ai_draft",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.4,
+    "requires_human": 0.11
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-015-d",
+   "situation": "track-015",
+   "flow": "track",
+   "label_status": "ai_draft",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.03,
+    "complete": 0.38,
+    "requires_human": 0.07
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-016-a",
+   "situation": "track-016",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.37,
+    "complete": 0.93,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-016-b",
+   "situation": "track-016",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.76,
+    "complete": 0.05,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-016-c",
+   "situation": "track-016",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.03,
+    "complete": 0.68,
+    "requires_human": 0.08
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-017-a",
+   "situation": "track-017",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.95,
+    "complete": 0.98,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "track-017-b",
+   "situation": "track-017",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.92,
+    "complete": 0.98,
+    "requires_human": 0.02
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "track-017-c",
+   "situation": "track-017",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.47,
+    "requires_human": 0.02
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-017-d",
+   "situation": "track-017",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.03,
+    "complete": 0.9,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-018-a",
+   "situation": "track-018",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.92,
+    "complete": 0.04,
+    "requires_human": 0.02
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-018-b",
+   "situation": "track-018",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.27,
+    "complete": 0.95,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-018-c",
+   "situation": "track-018",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.19,
+    "complete": 0.78,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-018-d",
+   "situation": "track-018",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.06,
+    "complete": 0.82,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-019-a",
+   "situation": "track-019",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.96,
+    "complete": 0.02,
+    "requires_human": 0.01
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-019-b",
+   "situation": "track-019",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.88,
+    "complete": 0.91,
+    "requires_human": 0.02
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "track-019-c",
+   "situation": "track-019",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.03,
+    "complete": 0.95,
+    "requires_human": 0.01
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-019-d",
+   "situation": "track-019",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.05,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "track-020-a",
+   "situation": "track-020",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.97,
+    "complete": 0.03,
+    "requires_human": 0.97
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "track-020-b",
+   "situation": "track-020",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.51,
+    "complete": 0.95,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "track-020-c",
+   "situation": "track-020",
+   "flow": "track",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.09,
+    "complete": 0.76,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "refund-013-a",
+   "situation": "refund-013",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.96,
+    "complete": 0.04,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-013-b",
+   "situation": "refund-013",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.9,
+    "complete": 0.97,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "refund-013-c",
+   "situation": "refund-013",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.7,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-013-d",
+   "situation": "refund-013",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.08,
+    "complete": 0.73,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-014-a",
+   "situation": "refund-014",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.87,
+    "complete": 0.96,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "refund-014-b",
+   "situation": "refund-014",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.0,
+    "complete": 0.8,
+    "requires_human": 0.07
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-014-c",
+   "situation": "refund-014",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.88,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-015-a",
+   "situation": "refund-015",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.88,
+    "complete": 0.42,
+    "requires_human": 0.05
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-015-b",
+   "situation": "refund-015",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.7,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-015-c",
+   "situation": "refund-015",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.03,
+    "complete": 0.5,
+    "requires_human": 0.05
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-016-a",
+   "situation": "refund-016",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.89,
+    "complete": 0.08,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "refund-016-b",
+   "situation": "refund-016",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.43,
+    "complete": 0.79,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "refund-016-c",
+   "situation": "refund-016",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.06,
+    "complete": 0.69,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "refund-017-a",
+   "situation": "refund-017",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.89,
+    "complete": 0.1,
+    "requires_human": 0.97
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "refund-017-b",
+   "situation": "refund-017",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.47,
+    "complete": 0.9,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "refund-017-c",
+   "situation": "refund-017",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.69,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "refund-018-a",
+   "situation": "refund-018",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.52,
+    "complete": 0.72,
+    "requires_human": 0.65
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-018-b",
+   "situation": "refund-018",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.76,
+    "complete": 0.22,
+    "requires_human": 0.52
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-018-c",
+   "situation": "refund-018",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.25,
+    "complete": 0.47,
+    "requires_human": 0.5
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-019-a",
+   "situation": "refund-019",
+   "flow": "refund",
+   "label_status": "ai_disputed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.38,
+    "complete": 0.91,
+    "requires_human": 0.22
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-019-b",
+   "situation": "refund-019",
+   "flow": "refund",
+   "label_status": "ai_disputed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.98,
+    "complete": 0.98,
+    "requires_human": 0.08
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "refund-019-c",
+   "situation": "refund-019",
+   "flow": "refund",
+   "label_status": "ai_disputed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.54,
+    "requires_human": 0.22
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-019-d",
+   "situation": "refund-019",
+   "flow": "refund",
+   "label_status": "ai_disputed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.0,
+    "complete": 0.3,
+    "requires_human": 0.11
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-020-a",
+   "situation": "refund-020",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.96,
+    "complete": 0.18,
+    "requires_human": 0.19
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "refund-020-b",
+   "situation": "refund-020",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.92,
+    "complete": 0.96,
+    "requires_human": 0.1
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "refund-020-c",
+   "situation": "refund-020",
+   "flow": "refund",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.46,
+    "requires_human": 0.15
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-013-a",
+   "situation": "cancel-013",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.88,
+    "complete": 0.08,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-013-b",
+   "situation": "cancel-013",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.79,
+    "complete": 0.89,
+    "requires_human": 0.05
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "cancel-013-c",
+   "situation": "cancel-013",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.15,
+    "complete": 0.94,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-014-a",
+   "situation": "cancel-014",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.92,
+    "complete": 0.08,
+    "requires_human": 0.02
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-014-b",
+   "situation": "cancel-014",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.93,
+    "complete": 0.95,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "cancel-014-c",
+   "situation": "cancel-014",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.76,
+    "requires_human": 0.02
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-015-a",
+   "situation": "cancel-015",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.95,
+    "complete": 0.98,
+    "requires_human": 0.02
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "cancel-015-b",
+   "situation": "cancel-015",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.0,
+    "complete": 0.77,
+    "requires_human": 0.02
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-015-c",
+   "situation": "cancel-015",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.73,
+    "complete": 0.86,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "cancel-015-d",
+   "situation": "cancel-015",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.03,
+    "complete": 0.91,
+    "requires_human": 0.02
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-016-a",
+   "situation": "cancel-016",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.91,
+    "complete": 0.95,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "cancel-016-b",
+   "situation": "cancel-016",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.22,
+    "complete": 0.84,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-016-c",
+   "situation": "cancel-016",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.94,
+    "complete": 0.06,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-017-a",
+   "situation": "cancel-017",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.97,
+    "complete": 0.07,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "cancel-017-b",
+   "situation": "cancel-017",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.65,
+    "complete": 0.9,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "cancel-017-c",
+   "situation": "cancel-017",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.55,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "cancel-018-a",
+   "situation": "cancel-018",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.76,
+    "complete": 0.02,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "cancel-018-b",
+   "situation": "cancel-018",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.67,
+    "complete": 0.2,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "cancel-018-c",
+   "situation": "cancel-018",
+   "flow": "cancel",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.36,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "cancel-019-a",
+   "situation": "cancel-019",
+   "flow": "cancel",
+   "label_status": "ai_draft",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.83,
+    "complete": 0.95,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "cancel-019-b",
+   "situation": "cancel-019",
+   "flow": "cancel",
+   "label_status": "ai_draft",
+   "supported": false,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.48,
+    "requires_human": 0.05
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-019-c",
+   "situation": "cancel-019",
+   "flow": "cancel",
+   "label_status": "ai_draft",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.0,
+    "complete": 0.55,
+    "requires_human": 0.08
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-019-d",
+   "situation": "cancel-019",
+   "flow": "cancel",
+   "label_status": "ai_draft",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.04,
+    "complete": 0.87,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-020-a",
+   "situation": "cancel-020",
+   "flow": "cancel",
+   "label_status": "ai_draft",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.74,
+    "complete": 0.16,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-020-b",
+   "situation": "cancel-020",
+   "flow": "cancel",
+   "label_status": "ai_draft",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.4,
+    "complete": 0.84,
+    "requires_human": 0.17
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "cancel-020-c",
+   "situation": "cancel-020",
+   "flow": "cancel",
+   "label_status": "ai_draft",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.04,
+    "complete": 0.86,
+    "requires_human": 0.07
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "return-013-a",
+   "situation": "return-013",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.98,
+    "complete": 0.02,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "return-013-b",
+   "situation": "return-013",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.95,
+    "complete": 0.85,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "return-013-c",
+   "situation": "return-013",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.41,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "return-014-a",
+   "situation": "return-014",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.95,
+    "complete": 0.85,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "return-014-b",
+   "situation": "return-014",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.87,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "return-014-c",
+   "situation": "return-014",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.24,
+    "complete": 0.88,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "return-015-a",
+   "situation": "return-015",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.93,
+    "complete": 0.07,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "return-015-b",
+   "situation": "return-015",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.61,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "return-015-c",
+   "situation": "return-015",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.03,
+    "complete": 0.43,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "return-016-a",
+   "situation": "return-016",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.94,
+    "complete": 0.94,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "return-016-b",
+   "situation": "return-016",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.31,
+    "complete": 0.86,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "return-016-c",
+   "situation": "return-016",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.76,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "return-017-a",
+   "situation": "return-017",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.95,
+    "complete": 0.05,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "return-017-b",
+   "situation": "return-017",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.93,
+    "complete": 0.8,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "return-017-c",
+   "situation": "return-017",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.8,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "return-017-d",
+   "situation": "return-017",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.94,
+    "complete": 0.05,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "return-018-a",
+   "situation": "return-018",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.93,
+    "complete": 0.95,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "return-018-b",
+   "situation": "return-018",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.67,
+    "requires_human": 0.03
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "return-018-c",
+   "situation": "return-018",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.89,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "return-019-a",
+   "situation": "return-019",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.83,
+    "complete": 0.81,
+    "requires_human": 0.07
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "return-019-b",
+   "situation": "return-019",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.62,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "return-019-c",
+   "situation": "return-019",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.55,
+    "complete": 0.91,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "return-019-d",
+   "situation": "return-019",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.74,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "return-020-a",
+   "situation": "return-020",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.86,
+    "complete": 0.03,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "return-020-b",
+   "situation": "return-020",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.03,
+    "complete": 0.78,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "return-020-c",
+   "situation": "return-020",
+   "flow": "return",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.59,
+    "complete": 0.43,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "missing-013-a",
+   "situation": "missing-013",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.63,
+    "complete": 0.79,
+    "requires_human": 0.13
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-013-b",
+   "situation": "missing-013",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.81,
+    "complete": 0.74,
+    "requires_human": 0.1
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "missing-013-c",
+   "situation": "missing-013",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.07,
+    "complete": 0.78,
+    "requires_human": 0.12
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-014-a",
+   "situation": "missing-014",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.72,
+    "complete": 0.07,
+    "requires_human": 0.09
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-014-b",
+   "situation": "missing-014",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.66,
+    "complete": 0.69,
+    "requires_human": 0.09
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-014-c",
+   "situation": "missing-014",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.07,
+    "complete": 0.68,
+    "requires_human": 0.1
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-014-d",
+   "situation": "missing-014",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.04,
+    "complete": 0.56,
+    "requires_human": 0.1
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-015-a",
+   "situation": "missing-015",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.78,
+    "complete": 0.06,
+    "requires_human": 0.07
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-015-b",
+   "situation": "missing-015",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.74,
+    "complete": 0.7,
+    "requires_human": 0.08
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "missing-015-c",
+   "situation": "missing-015",
+   "flow": "missing",
+   "label_status": "ai_draft",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.08,
+    "complete": 0.91,
+    "requires_human": 0.06
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-016-a",
+   "situation": "missing-016",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.87,
+    "complete": 0.78,
+    "requires_human": 0.13
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "missing-016-b",
+   "situation": "missing-016",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.65,
+    "requires_human": 0.4
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-016-c",
+   "situation": "missing-016",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.06,
+    "complete": 0.93,
+    "requires_human": 0.1
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-017-a",
+   "situation": "missing-017",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.92,
+    "complete": 0.69,
+    "requires_human": 0.17
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-017-b",
+   "situation": "missing-017",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.33,
+    "requires_human": 0.27
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-017-c",
+   "situation": "missing-017",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.04,
+    "complete": 0.46,
+    "requires_human": 0.13
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-018-a",
+   "situation": "missing-018",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.7,
+    "complete": 0.83,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "accept"
+  },
+  {
+   "id": "missing-018-b",
+   "situation": "missing-018",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.92,
+    "complete": 0.05,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-018-c",
+   "situation": "missing-018",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.01,
+    "complete": 0.51,
+    "requires_human": 0.14
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-018-d",
+   "situation": "missing-018",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": false,
+   "scores": {
+    "supported": 0.05,
+    "complete": 0.95,
+    "requires_human": 0.04
+   },
+   "cached": false,
+   "decision": "reject"
+  },
+  {
+   "id": "missing-019-a",
+   "situation": "missing-019",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.92,
+    "complete": 0.13,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "missing-019-b",
+   "situation": "missing-019",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.05,
+    "complete": 0.37,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "missing-019-c",
+   "situation": "missing-019",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.02,
+    "complete": 0.07,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "missing-020-a",
+   "situation": "missing-020",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": false,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.97,
+    "complete": 0.03,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "missing-020-b",
+   "situation": "missing-020",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": true,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.54,
+    "complete": 0.74,
+    "requires_human": 0.99
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "missing-020-c",
+   "situation": "missing-020",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.07,
+    "complete": 0.68,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  },
+  {
+   "id": "missing-020-d",
+   "situation": "missing-020",
+   "flow": "missing",
+   "label_status": "ai_agreed",
+   "supported": false,
+   "complete": true,
+   "requires_human": true,
+   "scores": {
+    "supported": 0.03,
+    "complete": 0.89,
+    "requires_human": 0.98
+   },
+   "cached": false,
+   "decision": "handoff"
+  }
+ ]
+}

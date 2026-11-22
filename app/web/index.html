@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
+  <title>Order help, Saanjh Clothing (demo)</title>
+  <link rel="icon" href="data:,">
+  <!-- The query string gives both files a fresh address: a browser that still holds an earlier build's
+       style.css and app.js must not run them against this page. -->
+  <link rel="stylesheet" href="style.css?v=19">
+  <script src="app.js?v=19" defer></script>
+</head>
+<body>
+  <a id="skip" class="skip" data-testid="skip" href="#chat-input">Skip to the message box</a>
+
+  <header class="masthead">
+    <p class="wordmark">Saanjh</p>
+    <h1 class="masthead__title">Order help</h1>
+    <button type="button" id="dev-toggle" class="mode" data-testid="dev-toggle" aria-label="Developer mode" aria-pressed="false"><span>Developer<span class="mode__word"> mode</span></span> <span id="dev-state" class="mode__state">Off</span></button>
+  </header>
+
+  <main class="desk">
+    <section id="rail" class="rail" aria-labelledby="orders-title">
+      <!-- On a narrow screen this panel is shown inside the item picker instead. -->
+      <div id="orders-panel" class="panel">
+        <div class="panel__head">
+          <h2 id="orders-title">Your orders</h2>
+          <p id="orders-meta"></p>
+        </div>
+        <div id="orders" class="panel__list"></div>
+        <!-- Below the list, not in it: the way back to a general question is in view however long the list is. -->
+        <button type="button" class="row row--general" data-testid="general-question" data-item="" aria-current="true">
+          <span class="row__name">Something else</span>
+          <span class="row__state">A general question, not about one item</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="chat" aria-label="Support chat">
+      <div class="context" data-testid="context-bar">
+        <span id="context-thumb" class="context__thumb" hidden></span>
+        <p id="context-name" class="context__name"></p>
+        <button type="button" id="change-item" class="btn btn--quiet" data-testid="change-item">Choose item</button>
+        <p id="context-meta" class="context__meta"></p>
+        <p id="context-state" class="context__state"></p>
+      </div>
+
+      <div id="messages" class="messages" data-testid="messages" role="log" aria-live="polite" aria-label="Conversation" tabindex="0">
+        <p id="intro" class="note">Choose an item, then ask about its delivery, a return or a refund. For a general question, just type it.</p>
+      </div>
+
+      <fieldset id="quick" class="quick" hidden>
+        <legend class="visually-hidden">Shortcuts for the selected item</legend>
+        <div class="quick__bar">
+          <div id="quick-first" class="quick__row">
+            <button type="button" class="chip" data-testid="quick-track" data-intent="track"></button>
+            <button type="button" class="chip" data-testid="quick-cancel" data-intent="cancel"></button>
+            <button type="button" class="chip" data-testid="quick-return" data-intent="return"></button>
+            <button type="button" class="chip" data-testid="quick-missing" data-intent="missing"></button>
+            <button type="button" class="chip" data-testid="quick-refund" data-intent="refund"></button>
+          </div>
+          <button type="button" id="more-help" class="more" data-testid="more-help" aria-expanded="false" aria-controls="quick-more">More help</button>
+        </div>
+        <!-- Shown above the first line, so that "More help" stays where it was pressed. -->
+        <div id="quick-more" class="quick__row quick__more" hidden></div>
+      </fieldset>
+
+      <form id="composer" class="composer">
+        <label id="chat-label" class="visually-hidden" for="chat-input">Message</label>
+        <input id="chat-input" data-testid="chat-input" type="text" maxlength="500" autocomplete="off" enterkeyhint="send" placeholder="Write a message">
+        <button type="submit" id="send" class="btn btn--solid" data-testid="send">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <p>Demo store. Every customer, order and policy here is fictional.</p>
+  </footer>
+
+  <dialog id="item-picker" class="sheet" data-testid="item-picker" aria-labelledby="orders-title">
+    <button type="button" id="picker-close" class="btn btn--quiet sheet__close">Close</button>
+    <div id="picker-slot" class="sheet__slot"></div>
+  </dialog>
+
+  <dialog id="trace-drawer" class="drawer" data-testid="trace-drawer" aria-labelledby="trace-title">
+    <div class="drawer__head">
+      <h2 id="trace-title">Reply trace</h2>
+      <button type="button" id="trace-close" class="btn btn--quiet" data-testid="trace-close">Close</button>
+    </div>
+    <div id="trace-body" class="drawer__body" tabindex="0"></div>
+  </dialog>
+
+  <!-- The one placeholder every garment shares: the orders API carries no product image. -->
+  <template id="thumb-template">
+    <span class="thumb">
+      <svg viewBox="0 0 40 50" aria-hidden="true" focusable="false">
+        <path d="M20 23.5V20a3 3 0 1 0-3-3"/>
+        <path d="M20 23.5 34 33.5H6z"/>
+      </svg>
+    </span>
+  </template>
+</body>
+</html>

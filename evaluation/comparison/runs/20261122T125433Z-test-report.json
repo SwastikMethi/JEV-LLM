@@ -1,0 +1,2655 @@
+{
+ "run": "20261122T125433Z-test.json",
+ "judgements": [
+  "test-judge1.json",
+  "test-judge2.json"
+ ],
+ "replies_judged": {
+  "unsuitable": 46,
+  "suitable": 167,
+  "disputed": 2
+ },
+ "metrics": {
+  "overall": {
+   "A": {
+    "requests": 120,
+    "resolved_correctly_without_a_person": {
+     "n": 66,
+     "d": 120,
+     "rate": 0.55
+    },
+    "wrong_reply_sent": {
+     "n": 30,
+     "d": 120,
+     "rate": 0.25
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 8,
+     "d": 30,
+     "rate": 0.2667
+    },
+    "disputed_reply_sent": {
+     "n": 1,
+     "d": 120,
+     "rate": 0.0083
+    },
+    "required_handoffs_missed": {
+     "n": 4,
+     "d": 16,
+     "rate": 0.25
+    },
+    "necessary_tickets": {
+     "n": 12,
+     "d": 16,
+     "rate": 0.75
+    },
+    "unnecessary_tickets": {
+     "n": 7,
+     "d": 104,
+     "rate": 0.0673
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 120,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 54,
+     "d": 120,
+     "rate": 0.45
+    },
+    "action_errors": {
+     "n": 4,
+     "d": 101,
+     "rate": 0.0396
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 120,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 4,
+     "p95": 9,
+     "max": 15
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0,
+     "total": 0.0,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0
+   },
+   "B": {
+    "requests": 120,
+    "resolved_correctly_without_a_person": {
+     "n": 77,
+     "d": 120,
+     "rate": 0.6417
+    },
+    "wrong_reply_sent": {
+     "n": 9,
+     "d": 120,
+     "rate": 0.075
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 9,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 1,
+     "d": 120,
+     "rate": 0.0083
+    },
+    "required_handoffs_missed": {
+     "n": 1,
+     "d": 16,
+     "rate": 0.0625
+    },
+    "necessary_tickets": {
+     "n": 15,
+     "d": 16,
+     "rate": 0.9375
+    },
+    "unnecessary_tickets": {
+     "n": 17,
+     "d": 104,
+     "rate": 0.1635
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 120,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 43,
+     "d": 120,
+     "rate": 0.3583
+    },
+    "action_errors": {
+     "n": 1,
+     "d": 88,
+     "rate": 0.0114
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 120,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 307,
+     "p95": 3340,
+     "max": 4800
+    },
+    "cost_usd_per_request": {
+     "jev": 0.00011762065000000001,
+     "llm": 0.00019142833333333332,
+     "total": 0.0003090489833333333,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.00048163477922077915
+   },
+   "B-no-LLM": {
+    "requests": 120,
+    "resolved_correctly_without_a_person": {
+     "n": 50,
+     "d": 120,
+     "rate": 0.4167
+    },
+    "wrong_reply_sent": {
+     "n": 8,
+     "d": 120,
+     "rate": 0.0667
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 120,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 1,
+     "d": 16,
+     "rate": 0.0625
+    },
+    "necessary_tickets": {
+     "n": 15,
+     "d": 16,
+     "rate": 0.9375
+    },
+    "unnecessary_tickets": {
+     "n": 46,
+     "d": 104,
+     "rate": 0.4423
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 120,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 70,
+     "d": 120,
+     "rate": 0.5833
+    },
+    "action_errors": {
+     "n": 1,
+     "d": 59,
+     "rate": 0.0169
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 120,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 283,
+     "p95": 395,
+     "max": 2374
+    },
+    "cost_usd_per_request": {
+     "jev": 8.19609e-05,
+     "llm": 0.0,
+     "total": 8.19609e-05,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.00019670616
+   },
+   "C": {
+    "requests": 120,
+    "resolved_correctly_without_a_person": {
+     "n": 83,
+     "d": 120,
+     "rate": 0.6917
+    },
+    "wrong_reply_sent": {
+     "n": 12,
+     "d": 120,
+     "rate": 0.1
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 12,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 1,
+     "d": 120,
+     "rate": 0.0083
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "necessary_tickets": {
+     "n": 16,
+     "d": 16,
+     "rate": 1.0
+    },
+    "unnecessary_tickets": {
+     "n": 8,
+     "d": 104,
+     "rate": 0.0769
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 120,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 37,
+     "d": 120,
+     "rate": 0.3083
+    },
+    "action_errors": {
+     "n": 4,
+     "d": 96,
+     "rate": 0.0417
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 120,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2274,
+     "p95": 3128,
+     "max": 4998
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0005626266666666666,
+     "total": 0.0005626266666666666,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0008134361445783133
+   },
+   "D": {
+    "requests": 120,
+    "resolved_correctly_without_a_person": {
+     "n": 76,
+     "d": 120,
+     "rate": 0.6333
+    },
+    "wrong_reply_sent": {
+     "n": 7,
+     "d": 120,
+     "rate": 0.0583
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 7,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 1,
+     "d": 120,
+     "rate": 0.0083
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "necessary_tickets": {
+     "n": 16,
+     "d": 16,
+     "rate": 1.0
+    },
+    "unnecessary_tickets": {
+     "n": 20,
+     "d": 104,
+     "rate": 0.1923
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 120,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 44,
+     "d": 120,
+     "rate": 0.3667
+    },
+    "action_errors": {
+     "n": 3,
+     "d": 84,
+     "rate": 0.0357
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 120,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2502,
+     "p95": 3526,
+     "max": 5261
+    },
+    "cost_usd_per_request": {
+     "jev": 9.621675e-05,
+     "llm": 0.0005626266666666666,
+     "total": 0.0006588434166666667,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0010402790789473682
+   }
+  },
+  "single": {
+   "A": {
+    "requests": 57,
+    "resolved_correctly_without_a_person": {
+     "n": 41,
+     "d": 57,
+     "rate": 0.7193
+    },
+    "wrong_reply_sent": {
+     "n": 13,
+     "d": 57,
+     "rate": 0.2281
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 2,
+     "d": 13,
+     "rate": 0.1538
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 3,
+     "d": 57,
+     "rate": 0.0526
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 16,
+     "d": 57,
+     "rate": 0.2807
+    },
+    "action_errors": {
+     "n": 2,
+     "d": 54,
+     "rate": 0.037
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 5,
+     "p95": 9,
+     "max": 15
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0,
+     "total": 0.0,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0
+   },
+   "B": {
+    "requests": 57,
+    "resolved_correctly_without_a_person": {
+     "n": 42,
+     "d": 57,
+     "rate": 0.7368
+    },
+    "wrong_reply_sent": {
+     "n": 5,
+     "d": 57,
+     "rate": 0.0877
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 5,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 10,
+     "d": 57,
+     "rate": 0.1754
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 15,
+     "d": 57,
+     "rate": 0.2632
+    },
+    "action_errors": {
+     "n": 1,
+     "d": 47,
+     "rate": 0.0213
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 315,
+     "p95": 3366,
+     "max": 4800
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0001323943157894737,
+     "llm": 0.0001464298245614035,
+     "total": 0.0002788241403508772,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0003784041904761905
+   },
+   "B-no-LLM": {
+    "requests": 57,
+    "resolved_correctly_without_a_person": {
+     "n": 35,
+     "d": 57,
+     "rate": 0.614
+    },
+    "wrong_reply_sent": {
+     "n": 5,
+     "d": 57,
+     "rate": 0.0877
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 5,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 17,
+     "d": 57,
+     "rate": 0.2982
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 22,
+     "d": 57,
+     "rate": 0.386
+    },
+    "action_errors": {
+     "n": 1,
+     "d": 40,
+     "rate": 0.025
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 295,
+     "p95": 428,
+     "max": 2374
+    },
+    "cost_usd_per_request": {
+     "jev": 0.000107478,
+     "llm": 0.0,
+     "total": 0.000107478,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0001750356
+   },
+   "C": {
+    "requests": 57,
+    "resolved_correctly_without_a_person": {
+     "n": 44,
+     "d": 57,
+     "rate": 0.7719
+    },
+    "wrong_reply_sent": {
+     "n": 7,
+     "d": 57,
+     "rate": 0.1228
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 7,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 6,
+     "d": 57,
+     "rate": 0.1053
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 13,
+     "d": 57,
+     "rate": 0.2281
+    },
+    "action_errors": {
+     "n": 2,
+     "d": 51,
+     "rate": 0.0392
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2289,
+     "p95": 2996,
+     "max": 3836
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0005717280701754386,
+     "total": 0.0005717280701754386,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0007406477272727273
+   },
+   "D": {
+    "requests": 57,
+    "resolved_correctly_without_a_person": {
+     "n": 43,
+     "d": 57,
+     "rate": 0.7544
+    },
+    "wrong_reply_sent": {
+     "n": 4,
+     "d": 57,
+     "rate": 0.0702
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 4,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 10,
+     "d": 57,
+     "rate": 0.1754
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 14,
+     "d": 57,
+     "rate": 0.2456
+    },
+    "action_errors": {
+     "n": 1,
+     "d": 47,
+     "rate": 0.0213
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 57,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2555,
+     "p95": 3402,
+     "max": 4110
+    },
+    "cost_usd_per_request": {
+     "jev": 0.00011119684210526316,
+     "llm": 0.0005717280701754386,
+     "total": 0.0006829249122807017,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0009052725581395348
+   }
+  },
+  "multi": {
+   "A": {
+    "requests": 14,
+    "resolved_correctly_without_a_person": {
+     "n": 7,
+     "d": 14,
+     "rate": 0.5
+    },
+    "wrong_reply_sent": {
+     "n": 5,
+     "d": 14,
+     "rate": 0.3571
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 5,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 1,
+     "d": 14,
+     "rate": 0.0714
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 1,
+     "d": 14,
+     "rate": 0.0714
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 7,
+     "d": 14,
+     "rate": 0.5
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 13,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 5,
+     "p95": 8,
+     "max": 8
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0,
+     "total": 0.0,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0
+   },
+   "B": {
+    "requests": 14,
+    "resolved_correctly_without_a_person": {
+     "n": 13,
+     "d": 14,
+     "rate": 0.9286
+    },
+    "wrong_reply_sent": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 1,
+     "d": 14,
+     "rate": 0.0714
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 1,
+     "d": 14,
+     "rate": 0.0714
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 13,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 326,
+     "p95": 3196,
+     "max": 3196
+    },
+    "cost_usd_per_request": {
+     "jev": 0.00017280300000000002,
+     "llm": 0.0002622214285714286,
+     "total": 0.0004350244285714286,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.00046848784615384617
+   },
+   "B-no-LLM": {
+    "requests": 14,
+    "resolved_correctly_without_a_person": {
+     "n": 7,
+     "d": 14,
+     "rate": 0.5
+    },
+    "wrong_reply_sent": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 7,
+     "d": 14,
+     "rate": 0.5
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 7,
+     "d": 14,
+     "rate": 0.5
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 7,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 285,
+     "p95": 340,
+     "max": 340
+    },
+    "cost_usd_per_request": {
+     "jev": 0.00011704800000000001,
+     "llm": 0.0,
+     "total": 0.00011704800000000001,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.00023409600000000002
+   },
+   "C": {
+    "requests": 14,
+    "resolved_correctly_without_a_person": {
+     "n": 12,
+     "d": 14,
+     "rate": 0.8571
+    },
+    "wrong_reply_sent": {
+     "n": 1,
+     "d": 14,
+     "rate": 0.0714
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 1,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 1,
+     "d": 14,
+     "rate": 0.0714
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 2,
+     "d": 14,
+     "rate": 0.1429
+    },
+    "action_errors": {
+     "n": 1,
+     "d": 13,
+     "rate": 0.0769
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2498,
+     "p95": 4998,
+     "max": 4998
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0005835142857142857,
+     "total": 0.0005835142857142857,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0006807666666666666
+   },
+   "D": {
+    "requests": 14,
+    "resolved_correctly_without_a_person": {
+     "n": 11,
+     "d": 14,
+     "rate": 0.7857
+    },
+    "wrong_reply_sent": {
+     "n": 1,
+     "d": 14,
+     "rate": 0.0714
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 1,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 2,
+     "d": 14,
+     "rate": 0.1429
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 3,
+     "d": 14,
+     "rate": 0.2143
+    },
+    "action_errors": {
+     "n": 1,
+     "d": 12,
+     "rate": 0.0833
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2792,
+     "p95": 5261,
+     "max": 5261
+    },
+    "cost_usd_per_request": {
+     "jev": 0.000117885,
+     "llm": 0.0005835142857142857,
+     "total": 0.0007013992857142857,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0008926899999999999
+   }
+  },
+  "follow_up": {
+   "A": {
+    "requests": 10,
+    "resolved_correctly_without_a_person": {
+     "n": 4,
+     "d": 10,
+     "rate": 0.4
+    },
+    "wrong_reply_sent": {
+     "n": 6,
+     "d": 10,
+     "rate": 0.6
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 5,
+     "d": 6,
+     "rate": 0.8333
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 6,
+     "d": 10,
+     "rate": 0.6
+    },
+    "action_errors": {
+     "n": 2,
+     "d": 10,
+     "rate": 0.2
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 3,
+     "p95": 10,
+     "max": 10
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0,
+     "total": 0.0,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0
+   },
+   "B": {
+    "requests": 10,
+    "resolved_correctly_without_a_person": {
+     "n": 9,
+     "d": 10,
+     "rate": 0.9
+    },
+    "wrong_reply_sent": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 1,
+     "d": 10,
+     "rate": 0.1
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 1,
+     "d": 10,
+     "rate": 0.1
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 9,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2336,
+     "p95": 2964,
+     "max": 2964
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0001415568,
+     "llm": 0.00034038000000000004,
+     "total": 0.00048193680000000003,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0005354853333333333
+   },
+   "B-no-LLM": {
+    "requests": 10,
+    "resolved_correctly_without_a_person": {
+     "n": 4,
+     "d": 10,
+     "rate": 0.4
+    },
+    "wrong_reply_sent": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 6,
+     "d": 10,
+     "rate": 0.6
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 6,
+     "d": 10,
+     "rate": 0.6
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 4,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 144,
+     "p95": 305,
+     "max": 305
+    },
+    "cost_usd_per_request": {
+     "jev": 6.58434e-05,
+     "llm": 0.0,
+     "total": 6.58434e-05,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.00016460850000000001
+   },
+   "C": {
+    "requests": 10,
+    "resolved_correctly_without_a_person": {
+     "n": 8,
+     "d": 10,
+     "rate": 0.8
+    },
+    "wrong_reply_sent": {
+     "n": 2,
+     "d": 10,
+     "rate": 0.2
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 2,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 2,
+     "d": 10,
+     "rate": 0.2
+    },
+    "action_errors": {
+     "n": 1,
+     "d": 10,
+     "rate": 0.1
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 1482,
+     "p95": 3401,
+     "max": 3401
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.00057481,
+     "total": 0.00057481,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0007185125000000001
+   },
+   "D": {
+    "requests": 10,
+    "resolved_correctly_without_a_person": {
+     "n": 8,
+     "d": 10,
+     "rate": 0.8
+    },
+    "wrong_reply_sent": {
+     "n": 1,
+     "d": 10,
+     "rate": 0.1
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 1,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 1,
+     "d": 10,
+     "rate": 0.1
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 2,
+     "d": 10,
+     "rate": 0.2
+    },
+    "action_errors": {
+     "n": 1,
+     "d": 9,
+     "rate": 0.1111
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 1795,
+     "p95": 3681,
+     "max": 3681
+    },
+    "cost_usd_per_request": {
+     "jev": 0.000128457,
+     "llm": 0.00057481,
+     "total": 0.000703267,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.00087908375
+   }
+  },
+  "policy": {
+   "A": {
+    "requests": 15,
+    "resolved_correctly_without_a_person": {
+     "n": 9,
+     "d": 15,
+     "rate": 0.6
+    },
+    "wrong_reply_sent": {
+     "n": 5,
+     "d": 15,
+     "rate": 0.3333
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 1,
+     "d": 5,
+     "rate": 0.2
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 1,
+     "d": 15,
+     "rate": 0.0667
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 6,
+     "d": 15,
+     "rate": 0.4
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2,
+     "p95": 9,
+     "max": 9
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0,
+     "total": 0.0,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0
+   },
+   "B": {
+    "requests": 15,
+    "resolved_correctly_without_a_person": {
+     "n": 10,
+     "d": 15,
+     "rate": 0.6667
+    },
+    "wrong_reply_sent": {
+     "n": 2,
+     "d": 15,
+     "rate": 0.1333
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 2,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 3,
+     "d": 15,
+     "rate": 0.2
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 5,
+     "d": 15,
+     "rate": 0.3333
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 12,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2651,
+     "p95": 3397,
+     "max": 3397
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0001269408,
+     "llm": 0.0002877933333333334,
+     "total": 0.00041473413333333335,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0006221012000000001
+   },
+   "B-no-LLM": {
+    "requests": 15,
+    "resolved_correctly_without_a_person": {
+     "n": 4,
+     "d": 15,
+     "rate": 0.2667
+    },
+    "wrong_reply_sent": {
+     "n": 2,
+     "d": 15,
+     "rate": 0.1333
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 2,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 9,
+     "d": 15,
+     "rate": 0.6
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 11,
+     "d": 15,
+     "rate": 0.7333
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 6,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 284,
+     "p95": 421,
+     "max": 421
+    },
+    "cost_usd_per_request": {
+     "jev": 7.71876e-05,
+     "llm": 0.0,
+     "total": 7.71876e-05,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0002894535
+   },
+   "C": {
+    "requests": 15,
+    "resolved_correctly_without_a_person": {
+     "n": 13,
+     "d": 15,
+     "rate": 0.8667
+    },
+    "wrong_reply_sent": {
+     "n": 1,
+     "d": 15,
+     "rate": 0.0667
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 1,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 1,
+     "d": 15,
+     "rate": 0.0667
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 2,
+     "d": 15,
+     "rate": 0.1333
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 14,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2281,
+     "p95": 2816,
+     "max": 2816
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0005228466666666667,
+     "total": 0.0005228466666666667,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0006032846153846155
+   },
+   "D": {
+    "requests": 15,
+    "resolved_correctly_without_a_person": {
+     "n": 10,
+     "d": 15,
+     "rate": 0.6667
+    },
+    "wrong_reply_sent": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 5,
+     "d": 15,
+     "rate": 0.3333
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 5,
+     "d": 15,
+     "rate": 0.3333
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 10,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 15,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2503,
+     "p95": 3090,
+     "max": 3090
+    },
+    "cost_usd_per_request": {
+     "jev": 9.20472e-05,
+     "llm": 0.0005228466666666667,
+     "total": 0.0006148938666666667,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0009223408000000001
+   }
+  },
+  "handoff": {
+   "A": {
+    "requests": 16,
+    "resolved_correctly_without_a_person": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "wrong_reply_sent": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 4,
+     "d": 16,
+     "rate": 0.25
+    },
+    "necessary_tickets": {
+     "n": 12,
+     "d": 16,
+     "rate": 0.75
+    },
+    "unnecessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 16,
+     "d": 16,
+     "rate": 1.0
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 4,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 4,
+     "p95": 13,
+     "max": 13
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0,
+     "total": 0.0,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": null
+   },
+   "B": {
+    "requests": 16,
+    "resolved_correctly_without_a_person": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "wrong_reply_sent": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 1,
+     "d": 16,
+     "rate": 0.0625
+    },
+    "necessary_tickets": {
+     "n": 15,
+     "d": 16,
+     "rate": 0.9375
+    },
+    "unnecessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 16,
+     "d": 16,
+     "rate": 1.0
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 1,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 4,
+     "p95": 2143,
+     "max": 2143
+    },
+    "cost_usd_per_request": {
+     "jev": 1.5883875e-05,
+     "llm": 3.5418750000000004e-05,
+     "total": 5.1302625e-05,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": null
+   },
+   "B-no-LLM": {
+    "requests": 16,
+    "resolved_correctly_without_a_person": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "wrong_reply_sent": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 1,
+     "d": 16,
+     "rate": 0.0625
+    },
+    "necessary_tickets": {
+     "n": 15,
+     "d": 16,
+     "rate": 0.9375
+    },
+    "unnecessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 16,
+     "d": 16,
+     "rate": 1.0
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 1,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 4,
+     "p95": 301,
+     "max": 301
+    },
+    "cost_usd_per_request": {
+     "jev": 1.5883875e-05,
+     "llm": 0.0,
+     "total": 1.5883875e-05,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": null
+   },
+   "C": {
+    "requests": 16,
+    "resolved_correctly_without_a_person": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "wrong_reply_sent": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "necessary_tickets": {
+     "n": 16,
+     "d": 16,
+     "rate": 1.0
+    },
+    "unnecessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 16,
+     "d": 16,
+     "rate": 1.0
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2206,
+     "p95": 2661,
+     "max": 2661
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0005623125,
+     "total": 0.0005623125,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": null
+   },
+   "D": {
+    "requests": 16,
+    "resolved_correctly_without_a_person": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "wrong_reply_sent": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "necessary_tickets": {
+     "n": 16,
+     "d": 16,
+     "rate": 1.0
+    },
+    "unnecessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 16,
+     "d": 16,
+     "rate": 1.0
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 16,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2206,
+     "p95": 2661,
+     "max": 2661
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0005623125,
+     "total": 0.0005623125,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": null
+   }
+  },
+  "irrelevant": {
+   "A": {
+    "requests": 8,
+    "resolved_correctly_without_a_person": {
+     "n": 5,
+     "d": 8,
+     "rate": 0.625
+    },
+    "wrong_reply_sent": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 1,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 2,
+     "d": 8,
+     "rate": 0.25
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 3,
+     "d": 8,
+     "rate": 0.375
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 6,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 3,
+     "p95": 8,
+     "max": 8
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0,
+     "total": 0.0,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0
+   },
+   "B": {
+    "requests": 8,
+    "resolved_correctly_without_a_person": {
+     "n": 3,
+     "d": 8,
+     "rate": 0.375
+    },
+    "wrong_reply_sent": {
+     "n": 2,
+     "d": 8,
+     "rate": 0.25
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 2,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 2,
+     "d": 8,
+     "rate": 0.25
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 5,
+     "d": 8,
+     "rate": 0.625
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 6,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 2569,
+     "p95": 3434,
+     "max": 3434
+    },
+    "cost_usd_per_request": {
+     "jev": 7.186725e-05,
+     "llm": 0.0003333,
+     "total": 0.00040516725000000004,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.001080446
+   },
+   "B-no-LLM": {
+    "requests": 8,
+    "resolved_correctly_without_a_person": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "wrong_reply_sent": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 1,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 7,
+     "d": 8,
+     "rate": 0.875
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 8,
+     "d": 8,
+     "rate": 1.0
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 1,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 7,
+     "p95": 9,
+     "max": 9
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0,
+     "total": 0.0,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": null
+   },
+   "C": {
+    "requests": 8,
+    "resolved_correctly_without_a_person": {
+     "n": 6,
+     "d": 8,
+     "rate": 0.75
+    },
+    "wrong_reply_sent": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 1,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 2,
+     "d": 8,
+     "rate": 0.25
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 586,
+     "p95": 2722,
+     "max": 2722
+    },
+    "cost_usd_per_request": {
+     "jev": 0.0,
+     "llm": 0.0005212125,
+     "total": 0.0005212125,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0006949500000000001
+   },
+   "D": {
+    "requests": 8,
+    "resolved_correctly_without_a_person": {
+     "n": 4,
+     "d": 8,
+     "rate": 0.5
+    },
+    "wrong_reply_sent": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    },
+    "of_which_the_fixed_not_understood_reply": {
+     "n": 0,
+     "d": 1,
+     "rate": 0.0
+    },
+    "disputed_reply_sent": {
+     "n": 1,
+     "d": 8,
+     "rate": 0.125
+    },
+    "required_handoffs_missed": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "necessary_tickets": {
+     "n": 0,
+     "d": 0,
+     "rate": null
+    },
+    "unnecessary_tickets": {
+     "n": 2,
+     "d": 8,
+     "rate": 0.25
+    },
+    "ended_in_an_error": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "not_resolved": {
+     "n": 4,
+     "d": 8,
+     "rate": 0.5
+    },
+    "action_errors": {
+     "n": 0,
+     "d": 6,
+     "rate": 0.0
+    },
+    "provider_errors": {
+     "n": 0,
+     "d": 8,
+     "rate": 0.0
+    },
+    "latency_ms": {
+     "median": 860,
+     "p95": 3074,
+     "max": 3074
+    },
+    "cost_usd_per_request": {
+     "jev": 0.00011151525000000001,
+     "llm": 0.0005212125,
+     "total": 0.0006327277500000001,
+     "unknown": 0
+    },
+    "cost_usd_per_correctly_resolved_request": 0.0012654555000000001
+   }
+  }
+ },
+ "break_even": [
+  {
+   "pair": [
+    "A",
+    "B"
+   ],
+   "model_usd_per_1000": {
+    "A": 0.0,
+    "B": 0.3090489833333333
+   },
+   "tickets_per_1000": {
+    "A": 450.0,
+    "B": 358.3333333333333
+   },
+   "ticket_price_usd": 0.0033714434545454534,
+   "cheaper_below": "A",
+   "cheaper_above": "B"
+  },
+  {
+   "pair": [
+    "A",
+    "B-no-LLM"
+   ],
+   "model_usd_per_1000": {
+    "A": 0.0,
+    "B-no-LLM": 0.0819609
+   },
+   "tickets_per_1000": {
+    "A": 450.0,
+    "B-no-LLM": 583.3333333333334
+   },
+   "ticket_price_usd": null,
+   "cheaper_below": "A",
+   "cheaper_above": "A"
+  },
+  {
+   "pair": [
+    "A",
+    "C"
+   ],
+   "model_usd_per_1000": {
+    "A": 0.0,
+    "C": 0.5626266666666666
+   },
+   "tickets_per_1000": {
+    "A": 450.0,
+    "C": 308.3333333333333
+   },
+   "ticket_price_usd": 0.0039714823529411756,
+   "cheaper_below": "A",
+   "cheaper_above": "C"
+  },
+  {
+   "pair": [
+    "A",
+    "D"
+   ],
+   "model_usd_per_1000": {
+    "A": 0.0,
+    "D": 0.6588434166666667
+   },
+   "tickets_per_1000": {
+    "A": 450.0,
+    "D": 366.6666666666667
+   },
+   "ticket_price_usd": 0.007906121000000002,
+   "cheaper_below": "A",
+   "cheaper_above": "D"
+  },
+  {
+   "pair": [
+    "B",
+    "B-no-LLM"
+   ],
+   "model_usd_per_1000": {
+    "B": 0.3090489833333333,
+    "B-no-LLM": 0.0819609
+   },
+   "tickets_per_1000": {
+    "B": 358.3333333333333,
+    "B-no-LLM": 583.3333333333334
+   },
+   "ticket_price_usd": 0.00100928037037037,
+   "cheaper_below": "B-no-LLM",
+   "cheaper_above": "B"
+  },
+  {
+   "pair": [
+    "B",
+    "C"
+   ],
+   "model_usd_per_1000": {
+    "B": 0.3090489833333333,
+    "C": 0.5626266666666666
+   },
+   "tickets_per_1000": {
+    "B": 358.3333333333333,
+    "C": 308.3333333333333
+   },
+   "ticket_price_usd": 0.005071553666666666,
+   "cheaper_below": "B",
+   "cheaper_above": "C"
+  },
+  {
+   "pair": [
+    "B",
+    "D"
+   ],
+   "model_usd_per_1000": {
+    "B": 0.3090489833333333,
+    "D": 0.6588434166666667
+   },
+   "tickets_per_1000": {
+    "B": 358.3333333333333,
+    "D": 366.6666666666667
+   },
+   "ticket_price_usd": null,
+   "cheaper_below": "B",
+   "cheaper_above": "B"
+  },
+  {
+   "pair": [
+    "B-no-LLM",
+    "C"
+   ],
+   "model_usd_per_1000": {
+    "B-no-LLM": 0.0819609,
+    "C": 0.5626266666666666
+   },
+   "tickets_per_1000": {
+    "B-no-LLM": 583.3333333333334,
+    "C": 308.3333333333333
+   },
+   "ticket_price_usd": 0.0017478755151515146,
+   "cheaper_below": "B-no-LLM",
+   "cheaper_above": "C"
+  },
+  {
+   "pair": [
+    "B-no-LLM",
+    "D"
+   ],
+   "model_usd_per_1000": {
+    "B-no-LLM": 0.0819609,
+    "D": 0.6588434166666667
+   },
+   "tickets_per_1000": {
+    "B-no-LLM": 583.3333333333334,
+    "D": 366.6666666666667
+   },
+   "ticket_price_usd": 0.0026625346923076923,
+   "cheaper_below": "B-no-LLM",
+   "cheaper_above": "D"
+  },
+  {
+   "pair": [
+    "C",
+    "D"
+   ],
+   "model_usd_per_1000": {
+    "C": 0.5626266666666666,
+    "D": 0.6588434166666667
+   },
+   "tickets_per_1000": {
+    "C": 308.3333333333333,
+    "D": 366.6666666666667
+   },
+   "ticket_price_usd": null,
+   "cheaper_below": "C",
+   "cheaper_above": "C"
+  }
+ ],
+ "engineering_surface": {
+  "rules_py_lines": 989,
+  "help_topics": 35,
+  "policy_json_bytes": 10484
+ }
+}

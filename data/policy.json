@@ -1,0 +1,163 @@
+{
+  "version": "2026-11-22",
+  "store": "Saanjh Clothing",
+  "cancellation": {
+    "topics": ["cancel", "cancellation_policy"],
+    "cancellable_statuses": ["packed"],
+    "text": "An item can be cancelled until it ships. When a prepaid item is cancelled, its full price is refunded to the original payment method. On a cash-on-delivery order nothing has been paid yet, so there is nothing to refund. Once an item has shipped it cannot be cancelled; if it is returnable, it can be returned after delivery."
+  },
+  "returns": {
+    "topics": ["return", "return_policy"],
+    "window_days": 7,
+    "non_returnable": {
+      "final_sale": "it was bought in a final sale",
+      "innerwear": "innerwear cannot be returned for hygiene reasons"
+    },
+    "text": "A delivered item can be returned within 7 days of its delivery date. The last eligible day is the delivery date plus 7 days. The item must be unused and unwashed, with its tags and original packaging. Final-sale items and innerwear cannot be returned. After a return is confirmed we arrange a free pickup from the delivery address and tell you the pickup date. The refund is initiated once the item passes inspection. The return of a cash-on-delivery item is arranged by our support team through a support ticket, because its refund is paid by bank transfer."
+  },
+  "exchanges": {
+    "topics": ["exchange", "exchange_policy"],
+    "text": "We do not offer direct exchanges. To get a different size or colour, return the item within its return window and place a new order. An item that cannot be returned cannot be exchanged either."
+  },
+  "refunds": {
+    "topics": ["refund_status", "refund_terms", "refund_policy"],
+    "business_days": 7,
+    "text": "Refunds go to the original payment method and are credited within 7 business days of being initiated. The refund for a cancelled prepaid item is initiated when the cancellation is confirmed. The refund for a returned item is initiated once the item passes inspection. A returned cash-on-delivery item is refunded by bank transfer, which our support team arranges through a support ticket. A refund is the price paid for the item: shipping and cash-on-delivery fees are not refunded. If a refund has not been credited by its expected date, our support team follows it up: we open a support ticket."
+  },
+  "shipping_times": {
+    "topics": ["shipping_times", "track_eta", "speed_up"],
+    "dispatch_business_days": 3,
+    "delivery_days": [3, 5],
+    "text": "We dispatch every order within 3 business days of it being placed. Delivery then takes 3 to 5 days, depending on the delivery pincode. Each item shows its estimated delivery date from the moment the order is placed."
+  },
+  "shipping_charges": {
+    "topics": ["shipping_charges", "payment"],
+    "fee_inr": 79,
+    "free_from_inr": 999,
+    "text": "Shipping costs ₹79 per order and is free on orders of ₹999 or more. The shipping fee is not refundable."
+  },
+  "cash_on_delivery": {
+    "topics": ["cash_on_delivery", "payment"],
+    "payment_method": "Cash on delivery",
+    "fee_inr": 49,
+    "max_order_inr": 5000,
+    "text": "Cash on delivery is available everywhere we deliver, on orders up to ₹5,000, for a fee of ₹49 per order. You pay the courier in cash when the order is delivered. The cash-on-delivery fee is not refundable."
+  },
+  "international_shipping": {
+    "topics": ["international_shipping"],
+    "text": "We deliver only within India. We do not ship to addresses in other countries."
+  },
+  "payment_methods": {
+    "topics": ["payment_methods", "payment"],
+    "methods": ["UPI", "Credit card", "Debit card", "Net banking", "Cash on delivery"],
+    "text": "We accept UPI, credit cards, debit cards, net banking and cash on delivery. No other payment method is accepted. A prepaid order is charged in full when it is placed."
+  },
+  "tracking": {
+    "topics": ["how_to_track", "track_status", "track_details"],
+    "couriers": ["Pavan Express", "Sarathi Couriers"],
+    "text": "Each item's status and estimated delivery date are shown under My Orders on our website, and this assistant can look them up too. Items are delivered by Pavan Express or Sarathi Couriers. When an item ships we send its tracking number by SMS and email; with that number the shipment can be followed on the courier's website. An item that has not shipped yet has no tracking number."
+  },
+  "delivery_attempts": {
+    "topics": ["delivery_options", "track_details"],
+    "max_attempts": 3,
+    "text": "The courier delivers between 9 am and 8 pm on any day of the week. If nobody is available to receive the package, the courier tries again the next day, up to 3 attempts in all; you do not need to do anything. After a third failed attempt the package comes back to us and the item is cancelled: a prepaid item is refunded, and nothing is charged for a cash-on-delivery item."
+  },
+  "delivery_changes": {
+    "topics": ["speed_up", "delivery_options"],
+    "text": "Every order ships at one standard speed: we have no express delivery, and an order cannot be expedited once it is placed. A delivery date or time slot cannot be chosen or changed. The courier hands the package over only at the delivery address and cannot leave it with a neighbour."
+  },
+  "late_delivery": {
+    "topics": ["late_delivery", "not_received", "track_status", "track_eta", "track_details", "speed_up", "delivery_options"],
+    "text": "An item is late when its estimated delivery date has passed and it has not been delivered; on the estimated date itself it is not late yet. When you ask about the delivery of a late item, our support team investigates with the courier: we open a support ticket."
+  },
+  "missing_delivery": {
+    "topics": ["not_received"],
+    "text": "While an item is in transit, its estimated delivery date applies. If the courier scan shows an item as delivered and you have not received it, our support team investigates with the courier: we open a support ticket."
+  },
+  "address_change": {
+    "topics": ["address_change", "order_changes"],
+    "text": "The delivery address can be changed only before the item ships. Our support team makes the change, so we open a support ticket for it. Once an item has shipped, its delivery address cannot be changed."
+  },
+  "order_changes": {
+    "topics": ["modify_order", "order_changes"],
+    "text": "An order cannot be edited after it is placed: the size, colour and quantity stay as ordered. To change them, cancel the item before it ships and place a new order. If it has already shipped, it can be returned after delivery, if it is returnable, and ordered again."
+  },
+  "damaged_or_wrong_item": {
+    "topics": ["damaged_wrong", "damaged_wrong_process"],
+    "text": "If an item arrives damaged or defective, or is not the item you ordered, our support team handles it: we open a support ticket. The team asks for photos of the item and its packaging, and then arranges a replacement or a refund."
+  },
+  "payment_problems": {
+    "topics": ["payment"],
+    "text": "If you were charged twice for an order, or a payment failed but the money was debited, or you see a charge you do not recognise, our support team checks it with the payment provider: we open a support ticket."
+  },
+  "invoices": {
+    "topics": ["invoice"],
+    "text": "The tax invoice for an item is emailed to you when the item ships. After that it can also be downloaded under My Orders on our website. There is no invoice for an item that has not shipped."
+  },
+  "support": {
+    "topics": ["support_contact", "human"],
+    "text": "This assistant is available at any time. Our support team works from 9 am to 9 pm, Monday to Saturday, and answers a support ticket within one business day. You can also write to care@saanjh.example. We do not offer phone support. To reach a person, ask here and we open a support ticket."
+  },
+  "escalation": [
+    {
+      "id": "delivery_scan_disputed",
+      "enforced_by": "backend",
+      "when": {"intent": "missing", "status": "delivered"},
+      "text": "The courier scan shows the item as delivered and the customer says they did not receive it."
+    },
+    {
+      "id": "refund_overdue",
+      "enforced_by": "backend",
+      "when": {"intent": "refund", "refund_overdue": true},
+      "text": "A refund was initiated, its expected credit date has passed, and it has not been credited. A refund that has been credited is not overdue."
+    },
+    {
+      "id": "late_delivery",
+      "enforced_by": "backend",
+      "when": {
+        "intent": ["late_delivery", "not_received", "track_status", "track_eta", "track_details", "speed_up", "delivery_options"],
+        "late": true
+      },
+      "text": "The item is late, meaning its estimated delivery date is earlier than today and it has not been delivered, and the customer asks about its delivery: where it is, when it will arrive, how to track it or how to get it sooner, or says that it is late or has not arrived. An item whose estimated delivery date is today or later is not late."
+    },
+    {
+      "id": "damaged_or_wrong_item",
+      "enforced_by": "backend",
+      "when": {"intent": ["damaged_wrong"]},
+      "text": "The customer reports a damaged, defective or wrong item."
+    },
+    {
+      "id": "address_change",
+      "enforced_by": "backend",
+      "when": {"intent": ["address_change"], "status": ["packed"]},
+      "text": "The customer asks to change the delivery address of an item that has not shipped yet."
+    },
+    {
+      "id": "cod_return",
+      "enforced_by": "backend",
+      "when": {"intent": ["return"], "prepaid": false, "can_return": true},
+      "text": "The customer asks us to take back a cash-on-delivery item that is still inside its return window. A question about how returns or refunds work is not such a request."
+    },
+    {
+      "id": "asks_for_person",
+      "enforced_by": "backend",
+      "when": {"intent": ["human"]},
+      "text": "The customer explicitly asks to speak to a person."
+    },
+    {
+      "id": "payment_problem",
+      "enforced_by": "gate",
+      "text": "The customer reports a duplicate charge, a payment that failed but was debited, an unauthorised payment or a chargeback."
+    },
+    {
+      "id": "legal_or_safety",
+      "enforced_by": "gate",
+      "text": "The customer threatens legal action or reports a safety problem."
+    },
+    {
+      "id": "abuse",
+      "enforced_by": "gate",
+      "text": "The customer is abusive or threatening towards the store or its staff."
+    }
+  ]
+}

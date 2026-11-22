@@ -1,0 +1,76 @@
+{
+  "observed_on": "2026-11-21",
+  "how": "Two fresh sessions against the local app (http://localhost:7860) with the live TypeSafe Jev gate and the local Ollama fallback. Scores are rounded to two decimals. No threshold had been tuned: these are the pilot defaults.",
+  "gate": {
+    "version": "pilot-1",
+    "model": "jev-1.14.0",
+    "policy_version": "2026-11-01",
+    "thresholds": {"supported_min": 0.7, "complete_min": 0.7, "requires_human_handoff": 0.7, "requires_human_low": 0.3}
+  },
+  "fallback": {"provider": "Ollama (OpenAI-compatible endpoint)", "model": "qwen3.5:9b", "reasoning_effort": "none"},
+  "item": "ITM-1001 Blue kurta, shipped 2026-11-20, estimated delivery 2026-11-24; cancellation allowed until shipment",
+  "runs": [
+    {
+      "run": 1,
+      "message": "When will my kurta arrive?",
+      "candidate": "Your kurta has shipped. It is expected on November 24.",
+      "scores": {"supported": 0.97, "complete": 0.99, "requires_human": 0.02},
+      "decision": "accept",
+      "route": "rule",
+      "provider_calls": {"jev": 1, "fallback": 0},
+      "elapsed_ms": {"jev": 413, "fallback": 0, "total": 413},
+      "cost_usd": 0.000053,
+      "final_reply": "Your kurta has shipped. It is expected on November 24.",
+      "matches_spec_expectation": true
+    },
+    {
+      "run": 1,
+      "message": "When will it arrive, and can I still cancel it?",
+      "candidate": "Your kurta has shipped. It is expected on November 24.",
+      "scores": {"supported": 0.97, "complete": 0.04, "requires_human": 0.02},
+      "decision": "reject",
+      "route": "fallback",
+      "fallback": {"kind": "reply", "action": null, "backend_problems": []},
+      "fallback_scores": {"supported": 0.97, "complete": 0.98, "requires_human": 0.02},
+      "fallback_decision": "accept",
+      "provider_calls": {"jev": 2, "fallback": 1},
+      "elapsed_ms": {"jev": 646, "fallback": 15993, "total": 16640},
+      "cost_usd": 0.00011,
+      "final_reply": "Your kurta has shipped and is expected on November 24. Because it has shipped, it can no longer be cancelled.",
+      "matches_spec_expectation": true
+    },
+    {
+      "run": 2,
+      "message": "When will my kurta arrive?",
+      "candidate": "Your kurta has shipped. It is expected on November 24.",
+      "scores": {"supported": 0.97, "complete": 0.99, "requires_human": 0.02},
+      "decision": "accept",
+      "route": "rule",
+      "provider_calls": {"jev": 1, "fallback": 0},
+      "elapsed_ms": {"jev": 281, "fallback": 0, "total": 281},
+      "cost_usd": 0.000053,
+      "final_reply": "Your kurta has shipped. It is expected on November 24.",
+      "matches_spec_expectation": true
+    },
+    {
+      "run": 2,
+      "message": "When will it arrive, and can I still cancel it?",
+      "candidate": "Your kurta has shipped. It is expected on November 24.",
+      "scores": {"supported": 0.98, "complete": 0.04, "requires_human": 0.02},
+      "decision": "reject",
+      "route": "fallback",
+      "fallback": {"kind": "reply", "action": null, "backend_problems": []},
+      "fallback_scores": {"supported": 0.97, "complete": 0.98, "requires_human": 0.02},
+      "fallback_decision": "accept",
+      "provider_calls": {"jev": 2, "fallback": 1},
+      "elapsed_ms": {"jev": 601, "fallback": 8830, "total": 9432},
+      "cost_usd": 0.00011,
+      "final_reply": "Your kurta has shipped and is expected on November 24. Because it has shipped, it can no longer be cancelled.",
+      "matches_spec_expectation": true
+    }
+  ],
+  "notes": [
+    "Jev latency was 0.26 to 0.65 seconds per message; cost is Jev input tokens only (about 1,275 per scoring at $0.042 per million). The local fallback has no per-token cost.",
+    "The fallback call took 8.8 to 16.0 seconds on this machine; the longer one followed a cold model load."
+  ]
+}

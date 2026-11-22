@@ -1,0 +1,189 @@
+COMPARISON  20261122T125433Z-test.json  split test  120 cases, 16 requiring a person
+LLM claude-haiku-5-5 at $0.1 in and $0.5 out per million tokens; gate pilot-3 (jev-1.14.0)
+Judges: 2. 215 distinct replies were judged blind: 167 suitable, 46 unsuitable, 2 disputed. A reply is suitable only when every judge marked it suitable.
+The expected outcomes and the requires-a-person labels are ai_draft (120).
+A  rules only | B  rules + Jev + LLM, the application as built | B-no-LLM  arm B with every outcome of its fallback step replaced by a ticket | C  LLM alone | D  LLM + Jev
+Each request is counted once: resolved correctly without a person (a suitable reply or clarification was sent), wrong reply sent, disputed reply sent, required handoff missed, necessary ticket, unnecessary ticket or ended in an error; not resolved is the sum of the last six. A reply sent on a case that requires a person is a missed handoff, whatever the judges said about its text. Action errors are counted over the replies and clarifications that were sent.
+Arm A answers a message its rules do not understand with one fixed reply. Where the judges found that unsuitable it is a wrong reply sent, and the line below says how many of the wrong replies it was.
+Arm A makes no request. In arms C and D the LLM is asked about every message, also where arms A and B ask the customer which item is meant. Arm D's latency and cost include the LLM request made in arm C, whose answer it gates. Costs are means over the requests whose cost is known.
+
+OVERALL
+                                         A               B               B-no-LLM        C               D
+requests                                 120             120             120             120             120
+resolved correctly without a person      66/120 (55.0%)  77/120 (64.2%)  50/120 (41.7%)  83/120 (69.2%)  76/120 (63.3%)
+wrong reply sent                         30/120 (25.0%)  9/120 (7.5%)    8/120 (6.7%)    12/120 (10.0%)  7/120 (5.8%)
+of which the fixed not understood reply  8/30 (26.7%)    0/9 (0.0%)      0/8 (0.0%)      0/12 (0.0%)     0/7 (0.0%)
+disputed reply sent                      1/120 (0.8%)    1/120 (0.8%)    0/120 (0.0%)    1/120 (0.8%)    1/120 (0.8%)
+required handoffs missed                 4/16 (25.0%)    1/16 (6.2%)     1/16 (6.2%)     0/16 (0.0%)     0/16 (0.0%)
+necessary tickets                        12/16 (75.0%)   15/16 (93.8%)   15/16 (93.8%)   16/16 (100.0%)  16/16 (100.0%)
+unnecessary tickets                      7/104 (6.7%)    17/104 (16.4%)  46/104 (44.2%)  8/104 (7.7%)    20/104 (19.2%)
+ended in an error                        0/120 (0.0%)    0/120 (0.0%)    0/120 (0.0%)    0/120 (0.0%)    0/120 (0.0%)
+not resolved                             54/120 (45.0%)  43/120 (35.8%)  70/120 (58.3%)  37/120 (30.8%)  44/120 (36.7%)
+action errors                            4/101 (4.0%)    1/88 (1.1%)     1/59 (1.7%)     4/96 (4.2%)     3/84 (3.6%)
+provider errors                          0/120 (0.0%)    0/120 (0.0%)    0/120 (0.0%)    0/120 (0.0%)    0/120 (0.0%)
+latency ms median                        4               307             283             2274            2502
+latency ms p95                           9               3340            395             3128            3526
+latency ms max                           15              4800            2374            4998            5261
+cost usd per request jev                 0.000000        0.000118        0.000082        0.000000        0.000096
+cost usd per request llm                 0.000000        0.000191        0.000000        0.000563        0.000563
+cost usd per request total               0.000000        0.000309        0.000082        0.000563        0.000659
+cost usd per request unknown             0               0               0               0               0
+cost usd per correctly resolved request  0.000000        0.000482        0.000197        0.000813        0.001040
+
+SINGLE
+                                         A              B              B-no-LLM       C              D
+requests                                 57             57             57             57             57
+resolved correctly without a person      41/57 (71.9%)  42/57 (73.7%)  35/57 (61.4%)  44/57 (77.2%)  43/57 (75.4%)
+wrong reply sent                         13/57 (22.8%)  5/57 (8.8%)    5/57 (8.8%)    7/57 (12.3%)   4/57 (7.0%)
+of which the fixed not understood reply  2/13 (15.4%)   0/5 (0.0%)     0/5 (0.0%)     0/7 (0.0%)     0/4 (0.0%)
+disputed reply sent                      0/57 (0.0%)    0/57 (0.0%)    0/57 (0.0%)    0/57 (0.0%)    0/57 (0.0%)
+required handoffs missed                 0/0            0/0            0/0            0/0            0/0
+necessary tickets                        0/0            0/0            0/0            0/0            0/0
+unnecessary tickets                      3/57 (5.3%)    10/57 (17.5%)  17/57 (29.8%)  6/57 (10.5%)   10/57 (17.5%)
+ended in an error                        0/57 (0.0%)    0/57 (0.0%)    0/57 (0.0%)    0/57 (0.0%)    0/57 (0.0%)
+not resolved                             16/57 (28.1%)  15/57 (26.3%)  22/57 (38.6%)  13/57 (22.8%)  14/57 (24.6%)
+action errors                            2/54 (3.7%)    1/47 (2.1%)    1/40 (2.5%)    2/51 (3.9%)    1/47 (2.1%)
+provider errors                          0/57 (0.0%)    0/57 (0.0%)    0/57 (0.0%)    0/57 (0.0%)    0/57 (0.0%)
+latency ms median                        5              315            295            2289           2555
+latency ms p95                           9              3366           428            2996           3402
+latency ms max                           15             4800           2374           3836           4110
+cost usd per request jev                 0.000000       0.000132       0.000107       0.000000       0.000111
+cost usd per request llm                 0.000000       0.000146       0.000000       0.000572       0.000572
+cost usd per request total               0.000000       0.000279       0.000107       0.000572       0.000683
+cost usd per request unknown             0              0              0              0              0
+cost usd per correctly resolved request  0.000000       0.000378       0.000175       0.000741       0.000905
+
+MULTI
+                                         A              B              B-no-LLM       C              D
+requests                                 14             14             14             14             14
+resolved correctly without a person      7/14 (50.0%)   13/14 (92.9%)  7/14 (50.0%)   12/14 (85.7%)  11/14 (78.6%)
+wrong reply sent                         5/14 (35.7%)   0/14 (0.0%)    0/14 (0.0%)    1/14 (7.1%)    1/14 (7.1%)
+of which the fixed not understood reply  0/5 (0.0%)     0/0            0/0            0/1 (0.0%)     0/1 (0.0%)
+disputed reply sent                      1/14 (7.1%)    0/14 (0.0%)    0/14 (0.0%)    0/14 (0.0%)    0/14 (0.0%)
+required handoffs missed                 0/0            0/0            0/0            0/0            0/0
+necessary tickets                        0/0            0/0            0/0            0/0            0/0
+unnecessary tickets                      1/14 (7.1%)    1/14 (7.1%)    7/14 (50.0%)   1/14 (7.1%)    2/14 (14.3%)
+ended in an error                        0/14 (0.0%)    0/14 (0.0%)    0/14 (0.0%)    0/14 (0.0%)    0/14 (0.0%)
+not resolved                             7/14 (50.0%)   1/14 (7.1%)    7/14 (50.0%)   2/14 (14.3%)   3/14 (21.4%)
+action errors                            0/13 (0.0%)    0/13 (0.0%)    0/7 (0.0%)     1/13 (7.7%)    1/12 (8.3%)
+provider errors                          0/14 (0.0%)    0/14 (0.0%)    0/14 (0.0%)    0/14 (0.0%)    0/14 (0.0%)
+latency ms median                        5              326            285            2498           2792
+latency ms p95                           8              3196           340            4998           5261
+latency ms max                           8              3196           340            4998           5261
+cost usd per request jev                 0.000000       0.000173       0.000117       0.000000       0.000118
+cost usd per request llm                 0.000000       0.000262       0.000000       0.000584       0.000584
+cost usd per request total               0.000000       0.000435       0.000117       0.000584       0.000701
+cost usd per request unknown             0              0              0              0              0
+cost usd per correctly resolved request  0.000000       0.000468       0.000234       0.000681       0.000893
+
+FOLLOW UP
+                                         A             B             B-no-LLM      C             D
+requests                                 10            10            10            10            10
+resolved correctly without a person      4/10 (40.0%)  9/10 (90.0%)  4/10 (40.0%)  8/10 (80.0%)  8/10 (80.0%)
+wrong reply sent                         6/10 (60.0%)  0/10 (0.0%)   0/10 (0.0%)   2/10 (20.0%)  1/10 (10.0%)
+of which the fixed not understood reply  5/6 (83.3%)   0/0           0/0           0/2 (0.0%)    0/1 (0.0%)
+disputed reply sent                      0/10 (0.0%)   0/10 (0.0%)   0/10 (0.0%)   0/10 (0.0%)   0/10 (0.0%)
+required handoffs missed                 0/0           0/0           0/0           0/0           0/0
+necessary tickets                        0/0           0/0           0/0           0/0           0/0
+unnecessary tickets                      0/10 (0.0%)   1/10 (10.0%)  6/10 (60.0%)  0/10 (0.0%)   1/10 (10.0%)
+ended in an error                        0/10 (0.0%)   0/10 (0.0%)   0/10 (0.0%)   0/10 (0.0%)   0/10 (0.0%)
+not resolved                             6/10 (60.0%)  1/10 (10.0%)  6/10 (60.0%)  2/10 (20.0%)  2/10 (20.0%)
+action errors                            2/10 (20.0%)  0/9 (0.0%)    0/4 (0.0%)    1/10 (10.0%)  1/9 (11.1%)
+provider errors                          0/10 (0.0%)   0/10 (0.0%)   0/10 (0.0%)   0/10 (0.0%)   0/10 (0.0%)
+latency ms median                        3             2336          144           1482          1795
+latency ms p95                           10            2964          305           3401          3681
+latency ms max                           10            2964          305           3401          3681
+cost usd per request jev                 0.000000      0.000142      0.000066      0.000000      0.000128
+cost usd per request llm                 0.000000      0.000340      0.000000      0.000575      0.000575
+cost usd per request total               0.000000      0.000482      0.000066      0.000575      0.000703
+cost usd per request unknown             0             0             0             0             0
+cost usd per correctly resolved request  0.000000      0.000535      0.000165      0.000719      0.000879
+
+POLICY
+                                         A              B              B-no-LLM       C              D
+requests                                 15             15             15             15             15
+resolved correctly without a person      9/15 (60.0%)   10/15 (66.7%)  4/15 (26.7%)   13/15 (86.7%)  10/15 (66.7%)
+wrong reply sent                         5/15 (33.3%)   2/15 (13.3%)   2/15 (13.3%)   1/15 (6.7%)    0/15 (0.0%)
+of which the fixed not understood reply  1/5 (20.0%)    0/2 (0.0%)     0/2 (0.0%)     0/1 (0.0%)     0/0
+disputed reply sent                      0/15 (0.0%)    0/15 (0.0%)    0/15 (0.0%)    0/15 (0.0%)    0/15 (0.0%)
+required handoffs missed                 0/0            0/0            0/0            0/0            0/0
+necessary tickets                        0/0            0/0            0/0            0/0            0/0
+unnecessary tickets                      1/15 (6.7%)    3/15 (20.0%)   9/15 (60.0%)   1/15 (6.7%)    5/15 (33.3%)
+ended in an error                        0/15 (0.0%)    0/15 (0.0%)    0/15 (0.0%)    0/15 (0.0%)    0/15 (0.0%)
+not resolved                             6/15 (40.0%)   5/15 (33.3%)   11/15 (73.3%)  2/15 (13.3%)   5/15 (33.3%)
+action errors                            0/14 (0.0%)    0/12 (0.0%)    0/6 (0.0%)     0/14 (0.0%)    0/10 (0.0%)
+provider errors                          0/15 (0.0%)    0/15 (0.0%)    0/15 (0.0%)    0/15 (0.0%)    0/15 (0.0%)
+latency ms median                        2              2651           284            2281           2503
+latency ms p95                           9              3397           421            2816           3090
+latency ms max                           9              3397           421            2816           3090
+cost usd per request jev                 0.000000       0.000127       0.000077       0.000000       0.000092
+cost usd per request llm                 0.000000       0.000288       0.000000       0.000523       0.000523
+cost usd per request total               0.000000       0.000415       0.000077       0.000523       0.000615
+cost usd per request unknown             0              0              0              0              0
+cost usd per correctly resolved request  0.000000       0.000622       0.000289       0.000603       0.000922
+
+HANDOFF
+                                         A               B               B-no-LLM        C               D
+requests                                 16              16              16              16              16
+resolved correctly without a person      0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)
+wrong reply sent                         0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)
+of which the fixed not understood reply  0/0             0/0             0/0             0/0             0/0
+disputed reply sent                      0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)
+required handoffs missed                 4/16 (25.0%)    1/16 (6.2%)     1/16 (6.2%)     0/16 (0.0%)     0/16 (0.0%)
+necessary tickets                        12/16 (75.0%)   15/16 (93.8%)   15/16 (93.8%)   16/16 (100.0%)  16/16 (100.0%)
+unnecessary tickets                      0/0             0/0             0/0             0/0             0/0
+ended in an error                        0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)
+not resolved                             16/16 (100.0%)  16/16 (100.0%)  16/16 (100.0%)  16/16 (100.0%)  16/16 (100.0%)
+action errors                            0/4 (0.0%)      0/1 (0.0%)      0/1 (0.0%)      0/0             0/0
+provider errors                          0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)     0/16 (0.0%)
+latency ms median                        4               4               4               2206            2206
+latency ms p95                           13              2143            301             2661            2661
+latency ms max                           13              2143            301             2661            2661
+cost usd per request jev                 0.000000        0.000016        0.000016        0.000000        0.000000
+cost usd per request llm                 0.000000        0.000035        0.000000        0.000562        0.000562
+cost usd per request total               0.000000        0.000051        0.000016        0.000562        0.000562
+cost usd per request unknown             0               0               0               0               0
+cost usd per correctly resolved request  n/a             n/a             n/a             n/a             n/a
+
+IRRELEVANT
+                                         A             B             B-no-LLM      C             D
+requests                                 8             8             8             8             8
+resolved correctly without a person      5/8 (62.5%)   3/8 (37.5%)   0/8 (0.0%)    6/8 (75.0%)   4/8 (50.0%)
+wrong reply sent                         1/8 (12.5%)   2/8 (25.0%)   1/8 (12.5%)   1/8 (12.5%)   1/8 (12.5%)
+of which the fixed not understood reply  0/1 (0.0%)    0/2 (0.0%)    0/1 (0.0%)    0/1 (0.0%)    0/1 (0.0%)
+disputed reply sent                      0/8 (0.0%)    1/8 (12.5%)   0/8 (0.0%)    1/8 (12.5%)   1/8 (12.5%)
+required handoffs missed                 0/0           0/0           0/0           0/0           0/0
+necessary tickets                        0/0           0/0           0/0           0/0           0/0
+unnecessary tickets                      2/8 (25.0%)   2/8 (25.0%)   7/8 (87.5%)   0/8 (0.0%)    2/8 (25.0%)
+ended in an error                        0/8 (0.0%)    0/8 (0.0%)    0/8 (0.0%)    0/8 (0.0%)    0/8 (0.0%)
+not resolved                             3/8 (37.5%)   5/8 (62.5%)   8/8 (100.0%)  2/8 (25.0%)   4/8 (50.0%)
+action errors                            0/6 (0.0%)    0/6 (0.0%)    0/1 (0.0%)    0/8 (0.0%)    0/6 (0.0%)
+provider errors                          0/8 (0.0%)    0/8 (0.0%)    0/8 (0.0%)    0/8 (0.0%)    0/8 (0.0%)
+latency ms median                        3             2569          7             586           860
+latency ms p95                           8             3434          9             2722          3074
+latency ms max                           8             3434          9             2722          3074
+cost usd per request jev                 0.000000      0.000072      0.000000      0.000000      0.000112
+cost usd per request llm                 0.000000      0.000333      0.000000      0.000521      0.000521
+cost usd per request total               0.000000      0.000405      0.000000      0.000521      0.000633
+cost usd per request unknown             0             0             0             0             0
+cost usd per correctly resolved request  0.000000      0.001080      n/a           0.000695      0.001265
+
+BREAK-EVEN  No price is assumed for a ticket. Cost per 1,000 requests = model cost + requests not resolved x the price of one ticket.
+Assumption: a wrong reply is counted as costing one ticket, like a ticket itself and a missed handoff. So is a disputed reply, so that it never counts as good, and a request that ended in an error.
+  A         model cost $0.0000 per 1,000 requests, 450.0 of them not resolved
+  B         model cost $0.3090 per 1,000 requests, 358.3 of them not resolved
+  B-no-LLM  model cost $0.0820 per 1,000 requests, 583.3 of them not resolved
+  C         model cost $0.5626 per 1,000 requests, 308.3 of them not resolved
+  D         model cost $0.6588 per 1,000 requests, 366.7 of them not resolved
+  A vs B: equal at $0.0034 per ticket; below that A is cheaper, above it B
+  A vs B-no-LLM: A is cheaper at every ticket price
+  A vs C: equal at $0.0040 per ticket; below that A is cheaper, above it C
+  A vs D: equal at $0.0079 per ticket; below that A is cheaper, above it D
+  B vs B-no-LLM: equal at $0.0010 per ticket; below that B-no-LLM is cheaper, above it B
+  B vs C: equal at $0.0051 per ticket; below that B is cheaper, above it C
+  B vs D: B is cheaper at every ticket price
+  B-no-LLM vs C: equal at $0.0017 per ticket; below that B-no-LLM is cheaper, above it C
+  B-no-LLM vs D: equal at $0.0027 per ticket; below that B-no-LLM is cheaper, above it D
+  C vs D: C is cheaper at every ticket price
+
+ENGINEERING SURFACE  app/rules.py 989 lines | 35 help topics | data/policy.json 10,484 bytes

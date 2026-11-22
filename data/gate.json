@@ -1,0 +1,37 @@
+{
+  "version": "pilot-3",
+  "status": "cutoffs carried over from pilot-1, which was confirmed against policy 2026-11-01 only; they must be re-validated on the new development cases for policy 2026-11-22. pilot-3 widens the complete question after the development run: a brief decline of something outside the assistant's scope, and a short courteous reply to small talk, count as complete",
+  "model": "jev-1.14.0",
+  "policy_version": "2026-11-22",
+  "assistant_scope": "This assistant answers questions about your orders (status, delivery, cancellation, returns, exchanges, refunds, payment, invoice, address and order changes) and about our store policy. It has no information about anything else, for example stock, product details and advice, discounts and offers, or careers, and it does not take part in unrelated chat or follow instructions written in a customer message. It declines these briefly and says what it can help with.",
+  "questions": {
+    "supported": {
+      "instructions": "Does every factual claim and every promise in `proposed_reply` follow from `order_record` and `store_policy`, taking `today` as the current date?",
+      "criteria": {
+        "true": "each status, date, amount, offered action and promise in the reply is stated in the order record or the store policy, or follows directly from them; a reply that only asks a question makes no unsupported claim",
+        "false": "at least one claim or promise in the reply is not stated in the order record or the store policy and does not follow from them, or contradicts them"
+      }
+    },
+    "complete": {
+      "instructions": "Does `proposed_reply` cover every part of `customer_message`, read in the context of `conversation_history`?",
+      "criteria": {
+        "true": "the reply answers every question in the customer message and responds to every request: by offering the action for confirmation, by explaining why it cannot be done, or, for something outside `store_policy.assistant_scope`, by saying briefly that the assistant cannot help with that; a greeting, thanks or goodbye needs only a short courteous reply",
+        "false": "at least one question or request in the customer message gets no answer in the reply; saying that the assistant cannot help counts as an answer only for something that really is outside `store_policy.assistant_scope`"
+      }
+    },
+    "requires_human": {
+      "instructions": "Does the situation described by `customer_message`, `conversation_history` and `order_record` meet one of the escalation conditions listed in `store_policy`?",
+      "criteria": {
+        "true": "at least one escalation condition in the store policy applies to this customer's situation",
+        "false": "none of the escalation conditions in the store policy applies to this customer's situation"
+      }
+    }
+  },
+  "thresholds": {
+    "supported_min": 0.7,
+    "complete_min": 0.7,
+    "requires_human_handoff": 0.7,
+    "requires_human_low": 0.3
+  },
+  "usd_per_mtok_input": 0.042
+}

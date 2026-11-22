@@ -1,0 +1,298 @@
+{
+  "now": "2026-11-21T10:00:00+05:30",
+  "customer": {"name": "Meera Iyer"},
+  "orders": [
+    {
+      "id": "ORD-1001", "placed_at": "2026-11-18", "payment_method": "UPI",
+      "shipping_fee_inr": 0, "cod_fee_inr": 0, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1001", "name": "Blue kurta", "noun": "kurta", "variant": "Size M", "price_inr": 1499,
+          "category": "Kurtas", "colour": "Blue", "size": "M", "non_returnable_reason": null,
+          "status": "shipped", "shipped_at": "2026-11-20", "eta": "2026-11-24", "delivered_at": null,
+          "courier": "Pavan Express", "tracking_number": "PVX731984126", "delivery_attempts": 0,
+          "events": [
+            {"at": "2026-11-18", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-20", "kind": "shipped", "note": "Picked up by courier"}
+          ],
+          "return": null,
+          "refund": null
+        }
+      ]
+    },
+    {
+      "id": "ORD-1002", "placed_at": "2026-11-19", "payment_method": "UPI",
+      "shipping_fee_inr": 0, "cod_fee_inr": 0, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1002", "name": "Mustard linen shirt", "noun": "shirt", "variant": "Size L", "price_inr": 1299,
+          "category": "Shirts", "colour": "Mustard", "size": "L", "non_returnable_reason": null,
+          "status": "packed", "shipped_at": null, "eta": "2026-11-26", "delivered_at": null,
+          "courier": null, "tracking_number": null, "delivery_attempts": 0,
+          "events": [
+            {"at": "2026-11-19", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-20", "kind": "packed", "note": "Packed at the warehouse"}
+          ],
+          "return": null,
+          "refund": null
+        }
+      ]
+    },
+    {
+      "id": "ORD-1003", "placed_at": "2026-11-10", "payment_method": "UPI",
+      "shipping_fee_inr": 0, "cod_fee_inr": 0, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1003", "name": "Black denim jacket", "noun": "jacket", "variant": "Size M", "price_inr": 3499,
+          "category": "Jackets", "colour": "Black", "size": "M", "non_returnable_reason": null,
+          "status": "delivered", "shipped_at": "2026-11-13", "eta": "2026-11-17", "delivered_at": "2026-11-17",
+          "courier": "Sarathi Couriers", "tracking_number": "SRC118199370", "delivery_attempts": 1,
+          "events": [
+            {"at": "2026-11-10", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-13", "kind": "shipped", "note": "Picked up by courier"},
+            {"at": "2026-11-17", "kind": "delivered", "note": "Courier scan: delivered"}
+          ],
+          "return": null,
+          "refund": null
+        },
+        {
+          "id": "ITM-1004", "name": "Maroon silk dupatta", "noun": "dupatta", "variant": "Free size", "price_inr": 899,
+          "category": "Dupattas", "colour": "Maroon", "size": "Free size", "non_returnable_reason": null,
+          "status": "delivered", "shipped_at": "2026-11-11", "eta": "2026-11-14", "delivered_at": "2026-11-14",
+          "courier": "Pavan Express", "tracking_number": "PVX731822654", "delivery_attempts": 1,
+          "events": [
+            {"at": "2026-11-10", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-11", "kind": "shipped", "note": "Picked up by courier"},
+            {"at": "2026-11-14", "kind": "delivered", "note": "Courier scan: delivered"}
+          ],
+          "return": null,
+          "refund": null
+        }
+      ]
+    },
+    {
+      "id": "ORD-1004", "placed_at": "2026-11-08", "payment_method": "UPI",
+      "shipping_fee_inr": 0, "cod_fee_inr": 0, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1005", "name": "Grey wool scarf", "noun": "scarf", "variant": "Free size", "price_inr": 749,
+          "category": "Scarves", "colour": "Grey", "size": "Free size", "non_returnable_reason": null,
+          "status": "delivered", "shipped_at": "2026-11-10", "eta": "2026-11-13", "delivered_at": "2026-11-13",
+          "courier": "Pavan Express", "tracking_number": "PVX731790418", "delivery_attempts": 1,
+          "events": [
+            {"at": "2026-11-08", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-10", "kind": "shipped", "note": "Picked up by courier"},
+            {"at": "2026-11-13", "kind": "delivered", "note": "Courier scan: delivered"}
+          ],
+          "return": null,
+          "refund": null
+        },
+        {
+          "id": "ITM-1006", "name": "Olive chinos", "noun": "chinos", "variant": "Waist 32", "price_inr": 1799,
+          "category": "Trousers", "colour": "Olive", "size": "32", "non_returnable_reason": null,
+          "status": "return_requested", "shipped_at": "2026-11-11", "eta": "2026-11-15", "delivered_at": "2026-11-15",
+          "courier": "Sarathi Couriers", "tracking_number": "SRC118187743", "delivery_attempts": 1,
+          "events": [
+            {"at": "2026-11-08", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-11", "kind": "shipped", "note": "Picked up by courier"},
+            {"at": "2026-11-15", "kind": "delivered", "note": "Courier scan: delivered"},
+            {"at": "2026-11-19", "kind": "return_requested", "note": "Return requested by customer"}
+          ],
+          "return": {"status": "requested", "requested_at": "2026-11-19", "pickup_on": "2026-11-22", "pickup_status": "scheduled"},
+          "refund": null
+        }
+      ]
+    },
+    {
+      "id": "ORD-1005", "placed_at": "2026-11-03", "payment_method": "UPI",
+      "shipping_fee_inr": 0, "cod_fee_inr": 0, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1007", "name": "Floral summer dress", "noun": "dress", "variant": "Size S", "price_inr": 2199,
+          "category": "Dresses", "colour": "Floral print", "size": "S", "non_returnable_reason": null,
+          "status": "refund_processing", "shipped_at": "2026-11-05", "eta": "2026-11-09", "delivered_at": "2026-11-09",
+          "courier": "Pavan Express", "tracking_number": "PVX731655209", "delivery_attempts": 1,
+          "events": [
+            {"at": "2026-11-03", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-05", "kind": "shipped", "note": "Picked up by courier"},
+            {"at": "2026-11-09", "kind": "delivered", "note": "Courier scan: delivered"},
+            {"at": "2026-11-11", "kind": "return_requested", "note": "Return requested by customer"},
+            {"at": "2026-11-13", "kind": "return_picked_up", "note": "Return picked up from customer"},
+            {"at": "2026-11-18", "kind": "refund_initiated", "note": "Return passed inspection, refund initiated"}
+          ],
+          "return": null,
+          "refund": {
+            "amount_inr": 2199, "status": "initiated", "initiated_at": "2026-11-18", "expected_by": "2026-11-27",
+            "credited_at": null, "method": "UPI", "reason": "return"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ORD-1006", "placed_at": "2026-10-21", "payment_method": "UPI",
+      "shipping_fee_inr": 0, "cod_fee_inr": 0, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1008", "name": "White sneakers", "noun": "sneakers", "variant": "UK 7", "price_inr": 2799,
+          "category": "Footwear", "colour": "White", "size": "UK 7", "non_returnable_reason": null,
+          "status": "refund_processing", "shipped_at": "2026-10-23", "eta": "2026-10-27", "delivered_at": "2026-10-27",
+          "courier": "Sarathi Couriers", "tracking_number": "SRC118093561", "delivery_attempts": 1,
+          "events": [
+            {"at": "2026-10-21", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-10-23", "kind": "shipped", "note": "Picked up by courier"},
+            {"at": "2026-10-27", "kind": "delivered", "note": "Courier scan: delivered"},
+            {"at": "2026-10-29", "kind": "return_requested", "note": "Return requested by customer"},
+            {"at": "2026-11-02", "kind": "return_picked_up", "note": "Return picked up from customer"},
+            {"at": "2026-11-05", "kind": "refund_initiated", "note": "Return passed inspection, refund initiated"}
+          ],
+          "return": null,
+          "refund": {
+            "amount_inr": 2799, "status": "initiated", "initiated_at": "2026-11-05", "expected_by": "2026-11-16",
+            "credited_at": null, "method": "UPI", "reason": "return"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ORD-1007", "placed_at": "2026-11-15", "payment_method": "UPI",
+      "shipping_fee_inr": 0, "cod_fee_inr": 0, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1009", "name": "White chikankari kurta", "noun": "kurta", "variant": "Size M", "price_inr": 1899,
+          "category": "Kurtas", "colour": "White", "size": "M", "non_returnable_reason": null,
+          "status": "delivered", "shipped_at": "2026-11-16", "eta": "2026-11-19", "delivered_at": "2026-11-19",
+          "courier": "Pavan Express", "tracking_number": "PVX731901837", "delivery_attempts": 1,
+          "events": [
+            {"at": "2026-11-15", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-16", "kind": "shipped", "note": "Picked up by courier"},
+            {"at": "2026-11-19", "kind": "delivered", "note": "Courier scan: delivered"}
+          ],
+          "return": null,
+          "refund": null
+        }
+      ]
+    },
+    {
+      "id": "ORD-1008", "placed_at": "2026-11-19", "payment_method": "Cash on delivery",
+      "shipping_fee_inr": 79, "cod_fee_inr": 49, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1010", "name": "Tan leather belt", "noun": "belt", "variant": "Size 34", "price_inr": 599,
+          "category": "Accessories", "colour": "Tan", "size": "34", "non_returnable_reason": null,
+          "status": "packed", "shipped_at": null, "eta": "2026-11-27", "delivered_at": null,
+          "courier": null, "tracking_number": null, "delivery_attempts": 0,
+          "events": [
+            {"at": "2026-11-19", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-20", "kind": "packed", "note": "Packed at the warehouse"}
+          ],
+          "return": null,
+          "refund": null
+        }
+      ]
+    },
+    {
+      "id": "ORD-1009", "placed_at": "2026-11-11", "payment_method": "Cash on delivery",
+      "shipping_fee_inr": 0, "cod_fee_inr": 49, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1011", "name": "Navy wool sweater", "noun": "sweater", "variant": "Size L", "price_inr": 1799,
+          "category": "Knitwear", "colour": "Navy", "size": "L", "non_returnable_reason": null,
+          "status": "delivered", "shipped_at": "2026-11-13", "eta": "2026-11-17", "delivered_at": "2026-11-18",
+          "courier": "Sarathi Couriers", "tracking_number": "SRC118204657", "delivery_attempts": 2,
+          "events": [
+            {"at": "2026-11-11", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-12", "kind": "packed", "note": "Packed at the warehouse"},
+            {"at": "2026-11-13", "kind": "shipped", "note": "Picked up by courier"},
+            {"at": "2026-11-17", "kind": "delivery_attempted", "note": "Delivery attempted: nobody was available to receive the package"},
+            {"at": "2026-11-18", "kind": "delivered", "note": "Courier scan: delivered"}
+          ],
+          "return": null,
+          "refund": null
+        }
+      ]
+    },
+    {
+      "id": "ORD-1010", "placed_at": "2026-11-12", "payment_method": "UPI",
+      "shipping_fee_inr": 0, "cod_fee_inr": 0, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1012", "name": "Rust velvet blazer", "noun": "blazer", "variant": "Size M", "price_inr": 2999,
+          "category": "Blazers", "colour": "Rust", "size": "M", "non_returnable_reason": "final_sale",
+          "status": "delivered", "shipped_at": "2026-11-13", "eta": "2026-11-17", "delivered_at": "2026-11-16",
+          "courier": "Pavan Express", "tracking_number": "PVX731905482", "delivery_attempts": 1,
+          "events": [
+            {"at": "2026-11-12", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-13", "kind": "shipped", "note": "Picked up by courier"},
+            {"at": "2026-11-16", "kind": "delivered", "note": "Courier scan: delivered"}
+          ],
+          "return": null,
+          "refund": null
+        }
+      ]
+    },
+    {
+      "id": "ORD-1011", "placed_at": "2026-11-13", "payment_method": "Debit card",
+      "shipping_fee_inr": 0, "cod_fee_inr": 0, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1013", "name": "Charcoal fleece hoodie", "noun": "hoodie", "variant": "Size L", "price_inr": 1599,
+          "category": "Sweatshirts", "colour": "Charcoal", "size": "L", "non_returnable_reason": null,
+          "status": "shipped", "shipped_at": "2026-11-16", "eta": "2026-11-19", "delivered_at": null,
+          "courier": "Pavan Express", "tracking_number": "PVX731977015", "delivery_attempts": 0,
+          "events": [
+            {"at": "2026-11-13", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-14", "kind": "packed", "note": "Packed at the warehouse"},
+            {"at": "2026-11-16", "kind": "shipped", "note": "Picked up by courier"},
+            {"at": "2026-11-17", "kind": "in_transit", "note": "Arrived at the courier's sorting hub"}
+          ],
+          "return": null,
+          "refund": null
+        }
+      ]
+    },
+    {
+      "id": "ORD-1012", "placed_at": "2026-11-16", "payment_method": "Net banking",
+      "shipping_fee_inr": 0, "cod_fee_inr": 0, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1014", "name": "Ivory cotton tunic", "noun": "tunic", "variant": "Size S", "price_inr": 1199,
+          "category": "Tunics", "colour": "Ivory", "size": "S", "non_returnable_reason": null,
+          "status": "shipped", "shipped_at": "2026-11-18", "eta": "2026-11-22", "delivered_at": null,
+          "courier": "Sarathi Couriers", "tracking_number": "SRC118260934", "delivery_attempts": 1,
+          "events": [
+            {"at": "2026-11-16", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-17", "kind": "packed", "note": "Packed at the warehouse"},
+            {"at": "2026-11-18", "kind": "shipped", "note": "Picked up by courier"},
+            {"at": "2026-11-20", "kind": "delivery_attempted", "note": "Delivery attempted: nobody was available to receive the package"}
+          ],
+          "return": null,
+          "refund": null
+        }
+      ]
+    },
+    {
+      "id": "ORD-1013", "placed_at": "2026-11-09", "payment_method": "Credit card",
+      "shipping_fee_inr": 0, "cod_fee_inr": 0, "delivery_city": "Bengaluru", "delivery_pincode": "560034",
+      "items": [
+        {
+          "id": "ITM-1015", "name": "Emerald georgette skirt", "noun": "skirt", "variant": "Size M", "price_inr": 1399,
+          "category": "Skirts", "colour": "Emerald", "size": "M", "non_returnable_reason": null,
+          "status": "cancelled", "shipped_at": null, "eta": "2026-11-16", "delivered_at": null,
+          "courier": null, "tracking_number": null, "delivery_attempts": 0,
+          "events": [
+            {"at": "2026-11-09", "kind": "placed", "note": "Order placed"},
+            {"at": "2026-11-10", "kind": "packed", "note": "Packed at the warehouse"},
+            {"at": "2026-11-10", "kind": "cancelled", "note": "Cancelled by the customer before shipping"},
+            {"at": "2026-11-10", "kind": "refund_initiated", "note": "Refund initiated to the original payment method"},
+            {"at": "2026-11-13", "kind": "refund_credited", "note": "Refund credited"}
+          ],
+          "return": null,
+          "refund": {
+            "amount_inr": 1399, "status": "credited", "initiated_at": "2026-11-10", "expected_by": "2026-11-19",
+            "credited_at": "2026-11-13", "method": "Credit card", "reason": "cancellation"
+          }
+        }
+      ]
+    }
+  ]
+}
