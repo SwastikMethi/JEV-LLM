@@ -1,5 +1,5 @@
 ---
-title: Saanjh Support Demo
+title: Ruleset + Jev Demo
 emoji: 🧵
 colorFrom: purple
 colorTo: gray
@@ -8,9 +8,10 @@ app_port: 7860
 pinned: false
 ---
 
-# Saanjh Clothing support demo
+# Ruleset + Jev demo
 
-A support bot for a fictional fashion store. A customer can track an order, check a refund, request a
+A demo of the ruleset + Jev idea, shown through one small use case: a support bot for a fictional
+fashion store, Saanjh Clothing. A customer can track an order, check a refund, request a
 cancellation or a return, and report an undelivered package. Simple rules draft routine replies from
 order records, and every draft is judged by **Jev**, TypeSafe's hosted decision model, before it is sent.
 When there is no draft, or Jev rejects it, a fallback LLM gets one attempt. Anything that cannot be
